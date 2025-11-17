@@ -1,5 +1,5 @@
 
-# Projecte 4 — EverPia: Desafiament Final 
+# Projecte 4 
 
 ## Introducció
 Benvinguts al **Projecte 4**, on formareu part d’un equip júnior IT encarregat d’ajudar **EverPia** en el seu procés d’escalat tecnològic. Treballareu amb Kanban, GitHub, Markdown, serveis corporatius i prototipat digital.
