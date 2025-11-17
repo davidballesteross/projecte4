@@ -1,34 +1,32 @@
 
 # Projecte 4 
 
-## Introducció
-Benvinguts al **Projecte 4**, on formareu part d’un equip júnior IT encarregat d’ajudar **EverPia** en el seu procés d’escalat tecnològic. Treballareu amb Kanban, GitHub, Markdown, serveis corporatius i prototipat digital.
+## Descripció del projecte
+**Projecte 4: Desafiament Final — EverPia** és un repte formatiu del **CFGM de Sistemes Microinformàtics i Xarxes (SMX2)**.  
+En aquest projecte, els alumnes assumeixen el rol d’un **equip júnior IT** contractat per l’empresa EverPia, que està immersa en un procés d’escalat tecnològic.  
 
 ---
 
-## Missió del projecte
-- Preparar i restaurar imatges amb **Rescuezilla**
-- Crear estratègies de **backup** per a Windows
-- Desplegar serveis corporatius (**SSH, NFS, RDP, CUPS…**)
-- Crear prototips corporatius i ecommerce en **Figma**
-- Gestionar versions amb **Git**
-- Documentar processos en **Markdown**
-- Integrar criteris de **sostenibilitat IT**
+## Objectius principals
+- Preparar i restaurar imatges de sistemes amb Rescuezilla.  
+- Dissenyar i documentar estratègies de còpies de seguretat en entorns Windows.  
+- Configurar serveis corporatius essencials: NFS, CUPS, SSH, RDP i assistència remota.  
+- Desenvolupar prototips corporatius i un ecommerce inicial amb Figma.  
+- Gestionar versions i documentació professional amb Git i Markdown.  
+- Treballar amb metodologies àgils utilitzant Kanban.  
+- Integrar criteris de sostenibilitat i economia circular en les decisions tècniques.
 
 ---
 
-## Reptes principals
-- DRP: estudis de cas + imatges completes del sistema  
-- Configuració d'accés remot  
-- Servidors NFS i CUPS  
-- Prototipat corporatiu i ecommerce  
-- Documentació tècnica  
-- Gestió del projecte + sostenibilitat
+## Competències desenvolupades
+- Administració bàsica de serveis i entorns IT corporatius.  
+- Gestió de còpies de seguretat i recuperació del sistema.  
+- Desplegament de serveis de xarxa i impressió en Linux.  
+- Disseny d’interfícies digitals i prototips professionals.  
+- Documentació tècnica clara, estructurada i orientada a empresa.  
+- Treball en equip i gestió del temps amb metodologies àgils.  
+- Ús d’eines corporatives: Git, GitHub, Figma i sistemes remots.  
 
----
-## 📌 Kanban del projecte
-Consulta el nostre tauler Kanban en format Markdown a:  
-**kanban.md**
 ---
 
 ## Tasques
