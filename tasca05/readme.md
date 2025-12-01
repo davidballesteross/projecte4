@@ -32,10 +32,10 @@ Cal demostrar que la connexió funciona en tots els casos.
 
 ## Estructura de carpetes
 
-Dins la carpeta `tasca05` es troben els següents arxius:
+Dins la carpeta tasca05 es troben els següents arxius:
 
-- `guia.md`: Guia d’ús internes que rebrà el pròxim becari, explicant com connectar-se als nostres sistemes de manera segura.
-- Carpeta `img/`: Conté les imatges utilitzades a la guia.
+- [guia](guia.md): Guia d’ús internes que rebrà el pròxim becari, explicant com connectar-se als nostres sistemes de manera segura.
+- Carpeta [img](img.md)`: Conté les imatges utilitzades a la guia.
 
 [Tornar pàgina del projecte](../README.md)
 
