@@ -34,8 +34,8 @@ Cal demostrar que la connexió funciona en tots els casos.
 
 Dins la carpeta tasca05 es troben els següents arxius:
 
-- [guia](guia.md): Guia d’ús internes que rebrà el pròxim becari, explicant com connectar-se als nostres sistemes de manera segura.
-- Carpeta [img](img.md)`: Conté les imatges utilitzades a la guia.
+- Carpeta [guia](guia.md): Guia d’ús internes que rebrà el pròxim becari, explicant com connectar-se als nostres sistemes de manera segura.
+- Carpeta [img](img.md): Conté les imatges utilitzades a la guia.
 
 [Tornar pàgina del projecte](../README.md)
 
