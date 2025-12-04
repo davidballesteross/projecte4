@@ -10,9 +10,7 @@ El primer que farem serà crear dues màquines virtuals: una amb Windows i l’a
 
 El primer que farem serà entrar a la màquina d’Ubuntu i executar la comanda 
 
-```bash 
 sudo apt install ssh
-```
 
 ![](img.md/3.png)
 
