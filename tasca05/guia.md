@@ -2,15 +2,7 @@
 
 ---
 
-Creem les dues màquines virtuals, una amb Windows i l’altra amb Linux (Ubuntu). Una vegada dins de la màquina virtual d'Ubuntu, executarem les següents comandes per instal·lar SSH:
-
-```bash
-sudo apt install ssh -y
-```
-
-I després comprovem que s’ha instal·lat correctament.
-
-![Captura 0](img/imagen0.png)
+Creem les dues màquines virtuals, una amb Windows i l’altra amb Linux (Ubuntu). Una vegada dins de la màquina virtual d'Ubuntu
 
 ---A la màquina ubuntu, configurem una interfície en NAT i l’altre en Host-Only.
 
