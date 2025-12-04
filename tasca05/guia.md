@@ -10,7 +10,7 @@ sudo apt install ssh -y
 
 I després comprovem que s’ha instal·lat correctament.
 
-![Captura 1](img/imagen0.png)
+![Captura 0](img/imagen0.png)
 
 ---A la màquina ubuntu, configurem una interfície en NAT i l’altre en Host-Only.
 
