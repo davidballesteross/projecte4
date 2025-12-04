@@ -1,11 +1,5 @@
 # T05:Connexió via SSH
 
-
-
-# T05: Accés Remot. Connexió via SSH
-
-# Documentació 
-
 El primer que farem serà crear dues màquines virtuals: una amb Windows i l’altra amb Linux (Ubuntu). La primera interfície serà NAT i la segona serà Host-Only.  
 
 ![](img.md/1.png)
