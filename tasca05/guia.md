@@ -15,7 +15,7 @@ Modifiquem el netplan.
 sudo nano /etc/netplan/50-cloud-init.yaml
 ```
 
-![Captura 2](img/i2.png)
+![Captura 2](img/imagen2.png)
 
 ---
 Instal·lem el servei ssh.
@@ -24,7 +24,7 @@ Instal·lem el servei ssh.
 sudo apt install ssh
 ```
 
-![Captura 3](img/i3.png)
+![Captura 3](img/magen3.png)
 
 ---
 Ens connectem al servei ssh.
@@ -33,7 +33,7 @@ Ens connectem al servei ssh.
 ssh usuari@192.168.56.101
 ```
 
-![Captura 4](img/i4.png)
+![Captura 4](img/imagen4.png)
 
 ---
 Comprovem que estem connectats al servidor des de la màquina client.
@@ -42,7 +42,7 @@ Comprovem que estem connectats al servidor des de la màquina client.
 hostname
 ```
 
-![Captura 5](img/i5.png)
+![Captura 5](img/imagen5.png)
 
 ---
 Li posem contrasenya a l’usuari root.
@@ -51,7 +51,7 @@ Li posem contrasenya a l’usuari root.
 sudo passwd root
 ```
 
-![Captura 6](img/i6.png)
+![Captura 6](img/imagen6.png)
 
 ---
 Entrem a l’arxiu /etc/ssh/sshd_config i afegim l’última línia.
@@ -60,7 +60,7 @@ Entrem a l’arxiu /etc/ssh/sshd_config i afegim l’última línia.
 sudo nano /etc/ssh/sshd_config
 ```
 
-![Captura 7](img/i7.png)
+![Captura 7](img/imagen7.png)
 
 ---
 Entrem a l’usuari root amb “sudo - root” per comprovar que ens deixa i després sortim.
@@ -70,7 +70,7 @@ su - root
 exit 
 ```
 
-![Captura 8](img/i8.png)
+![Captura 8](img/imagen8.png)
 
 ---
 Intentem fer ssh des de la màquina client cap a l’usuari d’administrador del servidor i veurem com ens denega l’accés.
@@ -78,7 +78,7 @@ Intentem fer ssh des de la màquina client cap a l’usuari d’administrador de
 ```
 ssh root@192.168.56.101
 ```
-![Captura 9](img/i9.png)
+![Captura 9](img/imagen9.png)
 
 ---
 Des de la màquina client, introduïm la comanda “ssh-keygen -t rsa” perquè ens generi codis RSA.
@@ -87,7 +87,7 @@ Des de la màquina client, introduïm la comanda “ssh-keygen -t rsa” perquè
 ssh-keygen -t rsa
 ```
 
-![Captura 10](img/i10.png)
+![Captura 10](img/imagen10.png)
 
 ---
 Amb la comanda “ls .\.ssh\” mirarem dins del directori de la carpeta ssh els arxius que hi ha creats, amb la data, el temps, mida i nom.
@@ -95,8 +95,8 @@ Amb la comanda “ls .\.ssh\” mirarem dins del directori de la carpeta ssh els
 ```
 ls .\.ssh\
 ```
-![Captura 11](img/i11.png)
-![Captura 12](img/i12.png)
+![Captura 11](img/imagen11.png)
+![Captura 12](img/imagen12.png)
 
 ---
 Dins de la carpeta ssh a la màquina del servidor, creem un arxiu.
@@ -105,7 +105,7 @@ Dins de la carpeta ssh a la màquina del servidor, creem un arxiu.
 touch .ssh/authorized_keys
 ```
 
-![Captura 13](img/i13.png)
+![Captura 13](img/imagen13.png)
 
 ---
 Copiem la clau que hem generat anteriorment a la carpeta ssh. 
@@ -114,7 +114,7 @@ Copiem la clau que hem generat anteriorment a la carpeta ssh.
 cat id_rsa.pub >> .ssh/authorized_keys
 ```
 
-![Captura 32](img/i32.png)
+![Captura 32](img/imagen32.png)
 
 ---
 Des de la màquina client, comprovem que podem fer ssh sense necessitat de la contrasenya.
@@ -123,13 +123,13 @@ Des de la màquina client, comprovem que podem fer ssh sense necessitat de la co
 ssh usuari@192.168.56.101
 ```
 
-![Captura 14](img/i14.png)
+![Captura 14](img/imagen14.png)
 
 ---
 Per tenir el servidor OpenSSH hem d’anar a configuració, característiques opcionals i activar el client OpenSSH.
 
-![Captura 15](img/i15.png)
-![Captura 16](img/i16.png)
+![Captura 15](img/imagen15.png)
+![Captura 16](img/imagen16.png)
 
 També podem instal·lar l'OpenSSH des del PowerShell, amb la seguent comanda:
 ```
@@ -140,12 +140,12 @@ Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 
 Desactivem el firewall, per això buscarem “Windows Defender Firewall” i seleccionarem l’opció de la configuració que es mostra.
 
-![Captura 17](img/i17.png)
+![Captura 17](img/imagen17.png)
 
 ---
 Entrem a xarxa pública.
 
-![Captura 18](img/i18.png)
+![Captura 18](imgmagen2/i18.png)
 
 ---
 Desactivem el Firewall de Microsoft Defender.
