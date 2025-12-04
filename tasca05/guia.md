@@ -24,7 +24,7 @@ Instal·lem el servei ssh.
 sudo apt install ssh
 ```
 
-![Captura 3](img/magen3.png)
+![Captura 3](img/imagen3.png)
 
 ---
 Ens connectem al servei ssh.
@@ -145,17 +145,17 @@ Desactivem el firewall, per això buscarem “Windows Defender Firewall” i sel
 ---
 Entrem a xarxa pública.
 
-![Captura 18](imgmagen2/i18.png)
+![Captura 18](img/imagen18.png)
 
 ---
 Desactivem el Firewall de Microsoft Defender.
 
-![Captura 19](img/i19.png)
+![Captura 19](img/imagen19.png)
 
 ---
 Executem com administrador el PowerShell.
 
-![Captura 20](img/i20.png)
+![Captura 20](img/imagen20.png)
 
 ---
 Iniciem el servei sshd.
@@ -164,7 +164,7 @@ Iniciem el servei sshd.
 Start-Service sshd
 ```
 
-![Captura 21](img/i21.png)
+![Captura 21](img/imagen21.png)
 
 ---
 Posem aquesta comanda perquè cada vegada que encenem la màquina s’inici el servei.
@@ -173,7 +173,7 @@ Posem aquesta comanda perquè cada vegada que encenem la màquina s’inici el s
 Set-Service -Name sshd -StartupType "Automatic"
 ```
 
-![Captura 22](img/i22.png)
+![Captura 22](img/imagen22.png)
 
 ---
 Fem ipconfig per veure l’ip de l’interfície Host-Only de la màquina ubuntu per poder-nos connectar.
@@ -182,7 +182,7 @@ Fem ipconfig per veure l’ip de l’interfície Host-Only de la màquina ubuntu
 ipconfig
 ```
 
-![Captura 23](img/i23.png)
+![Captura 23](img/imagen23.png)
 
 ---
 Fem un ping a la màquina client per comprovar que les dos màquines es veuen.
@@ -191,7 +191,7 @@ Fem un ping a la màquina client per comprovar que les dos màquines es veuen.
 ping google.com
 ```
 
-![Captura 24](img/i24.png)
+![Captura 24](img/imagen24.png)
 
 ---
 Ens connectem a la màquina client.
@@ -200,37 +200,37 @@ Ens connectem a la màquina client.
 ssh -D 9876 usuari@192.168.56.101
 ```
 
-![Captura 25](img/i25.png)
+![Captura 25](img/imagen25.png)
 
 ---
 Per configurar el Proxy al Windows, primer hem d’anar al panell de control i a xarxes.
 
 
-![Captura 26](img/i26.png)
+![Captura 26](img/imagen26.png)
 
 ---
 Anirem a opcions d’internet.
 
-![Captura 27](img/i27.png)
+![Captura 27](img/imagen27.png)
 
 ---
 A dins, anem a connexions i a configuració de LAN.
 
-![Captura 28](img/i28.png)
+![Captura 28](img/imagen28.png)
 
 ---
 Habilitem el servidor proxy, i després anem a opcions avançades.
 
-![Captura 29](img/i29.png)
+![Captura 29](img/imagen29.png)
 
 ---
 Posem l’IP local i el port amb el qual hem connectat el servei ssh.
 
-![Captura 30](img/i30.png)
+![Captura 30](img/imagen30.png)
 
 ---
 Comprovem els paquets en Wireshark.
 
-![Captura 31](img/i31.png)
+![Captura 31](img/imagen31.png)
 
 ---
