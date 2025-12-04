@@ -1,139 +1,204 @@
 # T05:Connexió via SSH
 
 
-Primer de tot hem de crear dues màquines virtuals, una amb Windows i l’altra amb Linux (Zorin). Una vegada dins de la màquina virtual de Zorin, executarem les següents comandes per instal·lar SSH:
 
-<img src="img.md/0.png">
+# T05: Accés Remot. Connexió via SSH
 
-I després comprovem que s’ha instal·lat correctament.
+# Documentació 
 
-<img src="img.md/1.png">
+El primer que farem serà crear dues màquines virtuals: una amb Windows i l’altra amb Linux (Ubuntu). La primera interfície serà NAT i la segona serà Host-Only.  
 
----
+![](img/1.png)
 
-Apaguem la màquina i afegim una segona interfície en **Host Only** perquè les màquines es vegin entre elles.
+![](img/2.png)
 
-<img src="img.md/2.png">
+# SSH Linux
 
-Arranquem la màquina i editem el netplan per assignar-li una IP a la interfície:
+El primer que farem serà entrar a la màquina d’Ubuntu i executar la comanda 
+
+```bash 
+sudo apt install ssh
+```
+
+![](img/3.png)
+
+Com que l’hem posat des del principi, la xarxa es configurarà automàticament. Després la comprovarem amb la comanda `ip addr show` per veure la IP del servidor.  
+
+![](img/4.png)
+
+I després comprovarem que l’SSH s’ha instal·lat correctament. 
+
+![](img/5.png)
+
+Després, dins de la màquina de Windows, anirem a “Ver conexiones de red” per poder editar la configuració i, tot seguit, comprovarem que s’ha assignat correctament.
+
+![](img/6.png) 
+
+![](img/7.png)
+
+![](img/8.png)
+
+Després d’haver fet l’anterior, ja ens podrem connectar a la màquina d’Ubuntu des de la terminal de Windows. Quan ens ho demani, haurem d’acceptar amb `yes`. Finalment, farem la connexió amb la comanda `ssh nom@ip`.  
+
+![](img/9.png)
+
+Després d’entrar, configurarem l’arxiu `/etc/ssh/sshd_config` amb l’editor `sudo nano`.
+
+![](img/10.png)
+
+Després, dins l’arxiu, podrem configurar diferents opcions, com per exemple: permetre o denegar la connexió per a l’usuari root, canviar el port de connexió i definir la llista d’usuaris autoritzats per a connexió remota.
+
+Per deshabilitar l’accés SSH per a l’usuari root, modificarem el mateix arxiu anterior i afegirem les línies corresponents.
+
+![](img/11.png)  
+
+Després, establirem una contrasenya per a l’usuari root amb la comanda `sudo passwd root`.  
+
+![](img/12.png)
+
+Després, intentarem connectar-nos per SSH com a root amb `ssh root@ip` i veurem que no ens deixarà.
+
+![](img/13.png)
+
+Però, localment, sí que podrem entrar com a root sense problemes.
+
+![](img/14.png)
+
+Després, per veure com permetre la connexió remota només a usuaris autoritzats, crearem un nou usuari anomenat `usuari2`.
+
+![](img/15.png)
+
+Després, establirem la contrasenya per a aquest usuari amb la comanda `passwd`.
+
+![](img/16.png)
+
+Després, haurem d’editar l’arxiu `sshd_config`.
+
+![](img/17.png)
+
+I afegirem la línia `AllowUsers` amb el nom de l’usuari que volem autoritzar, en aquest cas `usuari2`. Tot seguit, ho comprovarem.
+
+![](img/18.png)
+
+Finalment, reiniciarem el servei SSH per aplicar els canvis.
+
+![](img/19.png)
+
+Comprovem que amb l’usuari autoritzat podem connectar-nos per SSH.
+
+![](img/20.png)
+
+Després, comprovarem que l’usuari `usuari2` no es pot connectar, ja que no li hem donat permisos.
+
+![](img/21.png)
+
+Finalment, com a últim pas, accedirem mitjançant un certificat en lloc d’utilitzar l’usuari i la contrasenya.  
+
+
+Per fer això, el primer pas serà obrir el PowerShell del client i escriure la següent comanda:
 
 ```bash
-sudo nano /etc/netplan/50-cloud-init.yaml
+ssh-keygen -t rsa
 ```
 
-<img src="img.md/3.png">
+![](img/22.png)
 
-Una vegada amb l’arxiu modificat, apliquem els canvis:
+Després, entrarem a la carpeta `.ssh` i farem un `ls` per veure els fitxers que conté.
+
+![](img/23.png)
+
+Farem un `cat` per llegir el contingut de la clau que s’ha generat.
+
+![](img/24.png)
+
+Copiem el contingut de la clau i fem un `scp` cap a `usuari@192.168.56.102`.
+
+![](img/25.png)
+
+Després, entrarem dins de l’usuari i farem un `cat` a `/home/usuari/.ssh/id_rsa.pub` per comprovar que hem fet una còpia segura.
+
+![](img/26.png)
+
+Després, transferirem la informació a `.ssh/authorized_keys`.
+
+![](img/27.png)
+
+Ara veurem que podem entrar sense necessitat d’utilitzar cap contrasenya.
+
+![](img/28.png)
+
+# SSH Windows
+
+El primer serà instal·lar l’OpenSSH. Per això executarem la comanda següent:
 
 ```bash
-sudo netplan apply
+Add-WindowsCapability -Online -Name OpenSSH.Server
 ```
 
-I comprovem que s’ha assignat correctament.
+![](img/29.png)
 
-<img src="img.md/4.png">
-
----
-
-Encenem la màquina Windows i afegim la segona interfície en **Host Only** perquè es puguin veure les dues màquines.  
-
-A dins de Windows, ens dirigim a “Ver conexiones de red” per editar la configuració de l'adaptador i comprovem que s’ha assignat correctament.
-
-<img src="img.md/5.png">
-
-I comprovem que **s’ha assignat correctament** i que es **veuen entre elles**.
-
-<img src="img.md/6.png">
-
----
-
-Un cop completades les passes anteriors, ja ens podem connectar a la màquina Ubuntu des de la terminal de Windows amb:
+Després, iniciarem el servei amb la comanda:
 
 ```bash
-ssh usuari@192.168.56.200
+Start-Service sshd
 ```
 
-Ens apareix un missatge de seguretat ja que és la primera vegada que ens connectem, i ens demana confirmar l'autenticitat de la clau pública.  
+![](img/30.png)
 
-<img src="img.md/7.png">
+Per fer que s’iniciï automàticament, executarem la comanda:
 
-L’acceptem i ens connectem correctament, apareixent el terminal de la màquina Ubuntu.
+```bash 
+Set-Service -Name sshd -StartupType Automatic
+```
 
-<img src="img.md/8.png">
+![](img/31.png)
 
----
+Després, comprovarem que des de la màquina Linux podem connectar-nos per SSH a la de Windows.
 
-Un cop dins de la màquina a través de SSH, podem editar l’arxiu de configuració:
+![](img/32.png)  
+
+![](img/33.png)
+
+
+# Tunel
+
+El primer serà instal·lar el Wireshark.
+
+![](img/34.png)
+
+Entrem i comprovem que podem veure tot correctament.
+
+![](img/35.png)
+
+Entrem a les propietats, a la secció de connexió.
+
+![](img/36.png)
+
+A la configuració de LAN, habilitem el servidor proxy i fem clic a “Opcions avançades” per configurar-lo.
+
+![](img/37.png)
+
+A la configuració del proxy, establim el SOCKS a `127.0.0.1` i el port a `9876`.
+
+![](img/38.png)
+
+Després, connectem el túnel amb la comanda:
 
 ```bash
-sudo nano /etc/ssh/sshd_config
-```
-<img src="img.md/9.png">
-
-Per exemple, podem:
-- Permetre o no connexions de root.
-- Canviar el port de connexió (per defecte el 22).
-- Fer una llista d’usuaris autoritzats per connexió remota.
-
-Per deshabilitar l'accés SSH per a l'usuari root, modifiquem l’arxiu `/etc/ssh/sshd_config` i canviem les següents línies.
-
-<img src="img.md/10.png">
-
-Comprovem que només es pot iniciar sessió en root localment i no per SSH. Per a fer-ho haurem de canviar la contrasenya del root amb la següent comanda:
-
-```bash
-sudo passwd root
+ssh -D 9876 usuari@10.0.2.15
 ```
 
-<img src="img.md/11.png">
+![](img/39.png)
 
-Si intentem fer SSH com a root, no ens deixarà.  
+Desactivem el tallafocs perquè es pugui visualitzar.  
+Això s’ha de fer abans de crear el túnel:
 
-<img src="img.md/12.png">
+![](img/40.png)
 
-Però podem iniciar sessió de manera local sense problemes.
+Després, activem el proxy.
 
-<img src="img.md/13.png">
+Fem una cerca a Google i, tot seguit, obrim el Wireshark; haurem de veure com tot el tràfic passa pel túnel.  
 
----
+![](img/41.png)
 
-Per permetre connexió remota només a usuaris autoritzats:
-
-Creem un nou usuari `usuari2`:
-
-```bash
-sudo useradd -m -s /bin/bash usuari2
-```
-
-<img src="img.md/14.png">
-
-Assignem una contrasenya:
-
-```bash
-sudo passwd usuari2
-```
-
-Afegim l'usuari autoritzat a l’arxiu SSH:
-
-```bash
-sudo nano /etc/ssh/sshd_config
-```
-
-Afegim la línia:
-
-```text
-AllowUsers usuari
-```
-
-<img src="img.md/15.png">
-
-Reiniciem el servei per aplicar els canvis:
-
-```bash
-sudo systemctl restart ssh
-```
-
-Ara, si intentem iniciar sessió amb `usuari2` no podrem, mentre que amb l’usuari `usuari` sí que funciona.
-
-<img src="img.md/16.png">
-<img src="img.md/17.png">
+- [Tornar al enunciat](README.md)
