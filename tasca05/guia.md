@@ -6,7 +6,7 @@ Creem les dues màquines virtuals, una amb Windows i l’altra amb Linux (Ubuntu
 
 ---A la màquina ubuntu, configurem una interfície en NAT i l’altre en Host-Only.
 
-![Captura 1](img/i1.png)
+![Captura 1](img/imagen1.png)
 
 ---
 Modifiquem el netplan.
