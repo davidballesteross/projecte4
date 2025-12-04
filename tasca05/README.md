@@ -44,5 +44,5 @@ Dins la carpeta `tasca05` es troben els següents arxius:
 ##  Documents
 Podeu consultar tots els documents fent clic al document corresponent:
 - [Tornar pagina principal](../README.md)
-- [Anar a la activitat][guia](guia.md)
+- [Guia](guia.md)
 
