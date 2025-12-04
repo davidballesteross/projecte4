@@ -8,9 +8,7 @@ El primer que farem serà crear dues màquines virtuals: una amb Windows i l’a
 
 # SSH Linux
 
-El primer que farem serà entrar a la màquina d’Ubuntu i executar la comanda 
-
-**sudo apt install ssh**
+El primer que farem serà entrar a la màquina d’Ubuntu i executar la comanda : sudo apt install ssh
 
 ![](img.md/3.png)
 
@@ -87,11 +85,7 @@ Després, comprovarem que l’usuari `usuari2` no es pot connectar, ja que no li
 Finalment, com a últim pas, accedirem mitjançant un certificat en lloc d’utilitzar l’usuari i la contrasenya.  
 
 
-Per fer això, el primer pas serà obrir el PowerShell del client i escriure la següent comanda:
-
-```bash
-ssh-keygen -t rsa
-```
+Per fer això, el primer pas serà obrir el PowerShell del client i escriure la següent comanda: ssh-keygen -t rsa
 
 ![](img.md/22.png)
 
@@ -121,27 +115,15 @@ Ara veurem que podem entrar sense necessitat d’utilitzar cap contrasenya.
 
 # SSH Windows
 
-El primer serà instal·lar l’OpenSSH. Per això executarem la comanda següent:
-
-```bash
-Add-WindowsCapability -Online -Name OpenSSH.Server
-```
+El primer serà instal·lar l’OpenSSH. Per això executarem la comanda següent: Add-WindowsCapability -Online -Name OpenSSH.Server
 
 ![](img.md/29.png)
 
-Després, iniciarem el servei amb la comanda:
-
-```bash
-Start-Service sshd
-```
+Després, iniciarem el servei amb la comanda: Start-Service sshd
 
 ![](img.md/30.png)
 
-Per fer que s’iniciï automàticament, executarem la comanda:
-
-```bash 
-Set-Service -Name sshd -StartupType Automatic
-```
+Per fer que s’iniciï automàticament, executarem la comanda: Set-Service -Name sshd -StartupType Automatic
 
 ![](img.md/31.png)
 
@@ -174,11 +156,7 @@ A la configuració del proxy, establim el SOCKS a `127.0.0.1` i el port a `9876`
 
 ![](img.md/38.png)
 
-Després, connectem el túnel amb la comanda:
-
-```bash
-ssh -D 9876 usuari@10.0.2.15
-```
+Després, connectem el túnel amb la comanda: ssh -D 9876 usuari@10.0.2.15
 
 ![](img.md/39.png)
 
