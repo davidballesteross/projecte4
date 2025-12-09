@@ -2,63 +2,41 @@
 
 ---
 
-Creem les dues màquines virtuals, una amb Windows i l’altra amb Linux (Ubuntu). Una vegada dins de la màquina virtual d'Ubuntu
+Es creen dues màquines virtuals: una amb Windows i una altra amb Ubuntu.
 
----A la màquina ubuntu, configurem una interfície en NAT i l’altre en Host-Only.
+A la màquina ubuntu, configurem una interfície en NAT i l’altre en Host-Only.
 
 ![Captura 1](img/imagen1.png)
 
 ---
-Modifiquem el netplan.
-
-```
-sudo nano /etc/netplan/50-cloud-init.yaml
-```
+Modifiquem el netplan. : sudo nano /etc/netplan/50-cloud-init.yaml
 
 ![Captura 2](img/imagen2.png)
 
 ---
-Instal·lem el servei ssh.
-
-```
-sudo apt install ssh
-```
+Ara instal·lem el servei ssh. : sudo apt install ssh
 
 ![Captura 3](img/imagen3.png)
 
 ---
-Ens connectem al servei ssh.
-
-```
-ssh usuari@192.168.56.101
-```
+Ens connectem al servei ssh: ssh usuari@192.168.56.101
 
 ![Captura 4](img/imagen4.png)
 
 ---
-Comprovem que estem connectats al servidor des de la màquina client.
-
-```
-hostname
-```
+Ara comprovem que estem connectats al servidor des de la màquina client. Amb la comanda: hostname
 
 ![Captura 5](img/imagen5.png)
 
 ---
-Li posem contrasenya a l’usuari root.
-
-```
-sudo passwd root
-```
+Li posem contrasenya a l’usuari root: sudo passwd root
 
 ![Captura 6](img/imagen6.png)
 
 ---
 Entrem a l’arxiu /etc/ssh/sshd_config i afegim l’última línia.
 
-```
 sudo nano /etc/ssh/sshd_config
-```
 
 ![Captura 7](img/imagen7.png)
 
