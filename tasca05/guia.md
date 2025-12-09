@@ -114,38 +114,24 @@ Iniciem el servei sshd: Start-Service sshd
 ![Captura 21](img/imagen21.png)
 
 ---
-Posem aquesta comanda perquè cada vegada que encenem la màquina s’inici el servei.
+Posem aquesta comanda perquè cada vegada que encenem la màquina s’inici el servei: Set-Service -Name sshd -StartupType "Automatic"
 
-```
-Set-Service -Name sshd -StartupType "Automatic"
-```
 
 ![Captura 22](img/imagen22.png)
 
 ---
-Fem ipconfig per veure l’ip de l’interfície Host-Only de la màquina ubuntu per poder-nos connectar.
+Fem ipconfig per veure l’ip de l’interfície Host-Only de la màquina ubuntu per poder-nos connectar.: ipconfig
 
-```
-ipconfig
-```
 
 ![Captura 23](img/imagen23.png)
 
 ---
-Fem un ping a la màquina client per comprovar que les dos màquines es veuen.
-
-```
-ping google.com
-```
+Fem un ping a la màquina client per comprovar que les dos màquines es veuen: ping google.com
 
 ![Captura 24](img/imagen24.png)
 
 ---
-Ens connectem a la màquina client.
-
-```
-ssh -D 9876 usuari@192.168.56.101
-```
+Ens connectem a la màquina client: ssh -D 9876 usuari@192.168.56.101
 
 ![Captura 25](img/imagen25.png)
 
