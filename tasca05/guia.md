@@ -41,65 +41,38 @@ sudo nano /etc/ssh/sshd_config
 ![Captura 7](img/imagen7.png)
 
 ---
-Entrem a l’usuari root amb “sudo - root” per comprovar que ens deixa i després sortim.
-
-```
-su - root
-exit 
-```
+Entrem a l’usuari root amb “sudo - root” per comprovar que ens deixa i després sortim. 1: su - root 2:exit 
 
 ![Captura 8](img/imagen8.png)
 
 ---
-Intentem fer ssh des de la màquina client cap a l’usuari d’administrador del servidor i veurem com ens denega l’accés.
+Intentem fer ssh des de la màquina client cap a l’usuari d’administrador del servidor i veurem com ens denega l’accés: ssh root@192.168.56.101
 
-```
-ssh root@192.168.56.101
-```
 ![Captura 9](img/imagen9.png)
 
 ---
-Des de la màquina client, introduïm la comanda “ssh-keygen -t rsa” perquè ens generi codis RSA.
-
-```
-ssh-keygen -t rsa
-```
+Des de la màquina client, introduïm la comanda “ssh-keygen -t rsa” perquè ens generi codis RSA: ssh-keygen -t rsa
 
 ![Captura 10](img/imagen10.png)
 
 ---
-Amb la comanda “ls .\.ssh\” mirarem dins del directori de la carpeta ssh els arxius que hi ha creats, amb la data, el temps, mida i nom.
+Amb la comanda “ls .\.ssh\” mirarem dins del directori de la carpeta ssh els arxius que hi ha creats, amb la data, el temps, mida i nom: ls .\.ssh\
 
-```
-ls .\.ssh\
-```
 ![Captura 11](img/imagen11.png)
 ![Captura 12](img/imagen12.png)
 
 ---
-Dins de la carpeta ssh a la màquina del servidor, creem un arxiu.
-
-```
-touch .ssh/authorized_keys
-```
+Dins de la carpeta ssh a la màquina del servidor, creem un arxiu: touch .ssh/authorized_keys
 
 ![Captura 13](img/imagen13.png)
 
 ---
-Copiem la clau que hem generat anteriorment a la carpeta ssh. 
-
-```
-cat id_rsa.pub >> .ssh/authorized_keys
-```
+Copiem la clau que hem generat anteriorment a la carpeta ssh: cat id_rsa.pub >> .ssh/authorized_keys
 
 ![Captura 32](img/imagen32.png)
 
 ---
-Des de la màquina client, comprovem que podem fer ssh sense necessitat de la contrasenya.
-
-```
-ssh usuari@192.168.56.101
-```
+Des de la màquina client, comprovem que podem fer ssh sense necessitat de la contrasenya: ssh usuari@192.168.56.101
 
 ![Captura 14](img/imagen14.png)
 
@@ -109,8 +82,8 @@ Per tenir el servidor OpenSSH hem d’anar a configuració, característiques op
 ![Captura 15](img/imagen15.png)
 ![Captura 16](img/imagen16.png)
 
-També podem instal·lar l'OpenSSH des del PowerShell, amb la seguent comanda:
-```
+També podem instal·lar l'OpenSSH des del PowerShell, amb la seguent comanda: 
+``
 Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 ```
@@ -136,11 +109,7 @@ Executem com administrador el PowerShell.
 ![Captura 20](img/imagen20.png)
 
 ---
-Iniciem el servei sshd.
-
-```
-Start-Service sshd
-```
+Iniciem el servei sshd: Start-Service sshd
 
 ![Captura 21](img/imagen21.png)
 
