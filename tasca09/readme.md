@@ -33,6 +33,8 @@ Treball individual i pràctic amb màquines virtuals.
 ## Documents
 - `informe.md` amb la configuració pas a pas.  
 - Carpeta `img/` amb proves.
+  
+---
 
 - [Informe](informe.md)
 - [Tornar pàgina del projecte](../README.md)
