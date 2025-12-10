@@ -91,9 +91,7 @@ mkdir /srv/nfs/admin_tools
 
 ![Captura 9](img/9.png)
 
-Per ultim configurarem els permisos de les carpetas, en aquest cas seran els seguent.
-
-Chown per canviar la propietat de la carpeta
+Per ultim configurarem els permisos de les carpetas, en aquest utilitzare la comanda Chown per canviar la propietat de la carpeta.
 
 ```bash
 chown root:devs /srv/nfs/dev_projects
@@ -104,7 +102,7 @@ chown root:admin /srv/nfs/admin_tools
 ```
 ![Captura 10](img/10.png)
 
-Un cop fet això assignare els permisos de la carpeta amb la comanda chmod
+Un cop fet això hem d'assignar els permisos de la carpeta amb la comanda chmod 770
 
 ```bash
 chmod 770 /srv/nfs/dev_projects
@@ -116,21 +114,20 @@ chmod 770 /srv/nfs/admin_tools
 
 ![Captura 11](img/11.png)
 
-Per comprobar que els permisos estan correctas farem ls -l per poder veure els permisos de cada carpeta
+Per comprobar que els permisos estan correctament farem ls -l per poder veure els permisos de cada carpeta
 
 ![Captura 12](img/12.png)
 
-Avans de continuar amb el servidor crearem els grups i usuaris dins de la maquina client, en aquest cas una maquina zorin.
+Per poder continuar amb el servidor hem de crear els grups i usuaris dins de la maquina client (Zorin)
+Per poder crear els grups i usuaris farem instalem la aplicació "users and groups"
 
-Per poder crear els grups i usuaris farem servir la aplicació "users and groups"
-
-![aplicació](img/5.png)
+![Captura 13](img/13.png)
 
 Per comporbar que tots els grups s'han creat correctament farem servir el grep tal i com hem fet avans
 
-![grups](img/6.png)
+![Captura 14](img/14.png)
 
-![usuaris](img/7.png)
+![Captura 15](img/15.png)
 
 Hem de comprobar que els numeros UID i GID (els números d'identificació) coincideixin a les dues màquines.
 
