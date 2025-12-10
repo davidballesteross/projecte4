@@ -79,6 +79,7 @@ Un cop que ja hem creat els grups i els usuaris, el seguent pas sera crear el di
 ```bash
 mkdir /srv/nfs/dev_projects -p
 ```
+![Captura 8](img/8.png)
 
 Un cop fet això crearem el directori per a les eines d'administració en la qual la ruta sera /srv/nfs/admin_tools
 
@@ -86,7 +87,7 @@ Un cop fet això crearem el directori per a les eines d'administració en la qua
 mkdir /srv/nfs/admin_tools
 ```
 
-![Creació de carpetas](img/3.png)
+![Captura 9](img/9.png)
 
 Per ultim configurarem els permisos de les carpetas, en aquest cas seran els seguent.
 
@@ -99,6 +100,7 @@ chown root:devs /srv/nfs/dev_projects
 ```bash
 chown root:admin /srv/nfs/admin_tools
 ```
+![Captura 10](img/10.png)
 
 Un cop fet això assignare els permisos de la carpeta amb la comanda chmod
 
