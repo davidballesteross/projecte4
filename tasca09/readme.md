@@ -34,5 +34,6 @@ Treball individual i pràctic amb màquines virtuals.
 - `informe.md` amb la configuració pas a pas.  
 - Carpeta `img/` amb proves.
 
-[Tornar pàgina del projecte](../README.md)
+- [Informe](informe.md)
+- [Tornar pàgina del projecte](../README.md)
 
