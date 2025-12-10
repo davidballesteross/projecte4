@@ -58,7 +58,8 @@ Per confirmar que esta creat l'usuari dev01 correctament fem servir el grep
 ```bash
 grep dev01 /etc/passwd
 ```
-![Captura 5](img/5.png)
+
+![Captura 6](img/6.png)
 
 Un cop que ja tenim l'usuari dev01 el seguent pas sera crear l'usuari admin01 que formi part del grup admin, per fer això farem servir la seguent comanda
 
@@ -71,7 +72,7 @@ Per confirmar que esta creat l'usuari admin01 correctament fem servir el grep
 ```bash
 grep admin01 /etc/passwd
 ```
-![Captura 6](img/6.png)
+![Captura 7](img/7.png)
 
 Un cop que ja hem creat els grups i els usuaris, el seguent pas sera crear el directori per als projectes de desenvolupament en la qual la ruta que ens demana és la seguent /srv/nfs/dev_projects, per crear les totes les carpetas d'una sola comanda farem el seguent:
 
