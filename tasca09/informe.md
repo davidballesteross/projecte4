@@ -16,11 +16,12 @@ sudo apt update && sudo apt upgrade -y
 ```
 ![Captura 3](img/3.png)
 
-Cuan hem executat la comanda, hem de tornar a executarla per comprobar que no qieden actualitzacions.
+Cuan hem executat la comanda, hem de tornar a executarla per comprobar que no quedin actualitzacions.
 
-Un cop que ja tenim actualitzat els paquets, el seguent pas sera començar amb la creació de l'estructura de carpetas, de grups i usuaris.
+---
+Un cop que ja tenim actualitzat tots els paquets i ho haguem comprobat, el seguent pas sera començar amb la creació de l'estructura de carpetas, de grups i usuaris.
 
-El primer que farem sera crear els grups neccesaris, en aquest cas en demana que crem 2 grups, el primer devs i el segon admin
+El primer que farem sera crear els grups neccesaris, en aquest cas en demana que creem 2 grups, el primer **devs** i el segon **admin**
 
 Per crear aquest grups farem la seguent comanda 
 
@@ -33,7 +34,8 @@ groupadd admin
 ```
 ![Captura 4](img/4.png)
 
-Per comporbar que l'arxiu s'ha creat correctament farem servir el greep per buscar tant el grup devs com admin dins de l'arxiu /etc/groups, per fer-ho farem la seguent comanda
+---
+Per poder comprovar que els grups s'han creat correctament farem servir la comanda greep per buscar els 2 grups, el grup **devs** i el grup **admin**, hem d'entrar dins de l'arxiu /etc/groups, per fer-ho farem la seguent comanda:
 
 ```bash
 grep devs /etc/group
@@ -43,11 +45,11 @@ grep devs /etc/group
 grep admin /etc/group
 ```
 
-En la qual podrem veure que els grups d'han creat correctament
+En la qual com podrem veure en la captura els 2 grups d'han creat correctament
 
 ![Captura 5](img/5.png)
 
-Un cop que ja tenim els grups creats el seguent pas sera crear l'usuari dev01 que formi part del grup devs, per fer això farem servir la seguent comanda
+Un cop que ja tenim els grups creats el seguent pas sera crear l'usuari **dev01** que formi part del grup **devs**, per fer això farem servir la seguent comanda
 
 ```bash
 useradd -G devs -m -s /bin/bash dev01
@@ -61,13 +63,13 @@ grep dev01 /etc/passwd
 
 ![Captura 6](img/6.png)
 
-Un cop que ja tenim l'usuari dev01 el seguent pas sera crear l'usuari admin01 que formi part del grup admin, per fer això farem servir la seguent comanda
+Un cop que ja tenim l'usuari dev01 el seguent pas sera crear l'usuari **admin01** que formi part del grup **admin**, per fer això farem servir la seguent comanda
 
 ```bash
 useradd -G admin -m -s /bin/bash admin01
 ```
 
-Per confirmar que esta creat l'usuari admin01 correctament fem servir el grep
+Per confirmar que esta creat l'usuari **admin01** correctament fem servir la comanda grep com anteriorment
 
 ```bash
 grep admin01 /etc/passwd
@@ -112,9 +114,11 @@ chmod 770 /srv/nfs/dev_projects
 chmod 770 /srv/nfs/admin_tools
 ```
 
+![Captura 11](img/11.png)
+
 Per comprobar que els permisos estan correctas farem ls -l per poder veure els permisos de cada carpeta
 
-![Permisos de la carpeta](img/4.png)
+![Captura 12](img/12.png)
 
 Avans de continuar amb el servidor crearem els grups i usuaris dins de la maquina client, en aquest cas una maquina zorin.
 
