@@ -223,7 +223,7 @@ Previament ja hem exportat l'arxiu /srv/nfs per tant el seguent pas que hem de f
 mkdir /mnt/admin_tools 
 ```
 
-![Captura 25](img/25.png)
+![Captura 26](img/26.png)
 
 Un cop que tenim creada la carpeta, el seguent pas sera muntar el recurs, això ho farem amb la comanda mount 
 
@@ -233,15 +233,15 @@ mount -t nfs 192.168.56.101:/srv/nfs/admin_tools /mnt/admin_tools
 
 Podrem veure no podem crear cap arxiu ja que no tenim els pemisos ja que el root de la maquina client i el root del servidor no es el mateix
 
-![Captura 26](img/26.png)
+![Captura 27](img/27.png)
 
 Mentre que si intentem crear un arxiu amb l'usuari admin si que podrem, ja que aquest usuari si que te permisos en aquesta carpeta
 
-![Captura 27](img/27.png)
+![Captura 28](img/28.png)
 
 Podem veure que l'arxiu que hem creat es propietat de admin01
 
-![Captura 28](img/28.png)
+![Captura 29](img/29.png)
 
 A continuació ensenyare com fer per poder crear arxius amb root
 
@@ -273,9 +273,9 @@ mount -t nfs 192.168.56.101:/srv/nfs/admin_tools /mnt/admin_tools
 
 Un cop fet això podrem crear un now arxiu, per exemple en aquest cas he creat una arxiu anomenat file2
 
-![Captura 29](img/29.png)
-
 ![Captura 30](img/30.png)
+
+![Captura 31](img/31.png)
 
 Això a causa de que hem modificat l'arxiu /etc/exports fent que el root de la maquina fisica sigui el mateix que el root del servidor, per tant tenim total llibertat 
 
