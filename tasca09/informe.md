@@ -262,20 +262,13 @@ systemctl restart nfs-kernel-server
 
 A continuació haurem de desmuntar i muntar un altre cop el recurs, en el meu cas la comanda per desmuntar sera 
 
-```bash
-umount -t nfs 192.168.56.101:/srv/nfs/admin_tools /mnt/admin_tools
-```
-I per muntar
-
-```bash
-mount -t nfs 192.168.56.101:/srv/nfs/admin_tools /mnt/admin_tools
-```
+![Captura 30](img/30.png)
 
 Un cop fet això podrem crear un now arxiu, per exemple en aquest cas he creat una arxiu anomenat file2
 
-![Captura 30](img/30.png)
-
 ![Captura 31](img/31.png)
+
+![Captura 32](img/32.png)
 
 Això a causa de que hem modificat l'arxiu /etc/exports fent que el root de la maquina fisica sigui el mateix que el root del servidor, per tant tenim total llibertat 
 
