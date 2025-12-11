@@ -266,9 +266,9 @@ A continuació haurem de desmuntar i muntar un altre cop el recurs, en el meu ca
 
 Un cop fet això podrem crear un now arxiu, per exemple en aquest cas he creat una arxiu anomenat file2
 
-![Captura 31](img/31.png)
-
 ![Captura 32](img/32.png)
+
+![Captura 31](img/31.png)
 
 Això a causa de que hem modificat l'arxiu /etc/exports fent que el root de la maquina fisica sigui el mateix que el root del servidor, per tant tenim total llibertat 
 
