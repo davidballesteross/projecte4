@@ -304,25 +304,13 @@ mkdir /mnt/dev_projects
 
 El seguent pas que farem sera modificar la nostre ip, en aquest cas probarem amb la ip ```192.168.56.199``` per poder fer això anirem a la configuració de xarxa i colocarem la ip manualment i muntarem el disc
 
-![Configuració de xarxa](img/20.png)
+![Captura 34](img/34.png)
 
-Un cop fet això si fem login l'usuari dev01 com que tenim una ip dins del rang que pot editar dins de la carpeta si que podrem crear arxius
+Ara per ultim fare login amb l'usuari dev01 i intentare crear un arxiu en la carpeta dev_projects
 
-![Creació d'arxiu](img/22.png)
+![Captura 35](img/35.png)
 
-Mentre que canviem la ip ```192.168.56.140``` podrem observar que no podem editar els arxius però si que podem veure que hi ha a la carpeta, haurem de tornar a desmuntar i muntar el disc
-
-![Canvi d'IP](img/23.png)
-
-Podrem veure que podem accedir a la carpeta i veure que hi ha dins però no podrem modificar el contigut ja que nomes tenim permisos de lectura
-
-![permisos](img/24.png)
-
-Ara per ultim farem login amb l'usuari admin01 i intentarem crear un arxiu en la carpeta dev_projects
-
-![permisos](img/25.png)
-
-Podem veure que no podem crear cap arxius dins de la carpeta dev_projects ja que no tenim els permisos neccesaris ja que l'usuari admin01 no forma part del grup dev01
+Podem veure que no podem crear cap arxius dins de la carpeta dev_projects ja que no tenim els permisos neccesaris ja que l'usuari dev01 no forma part del grup admin
 
 ---
 
