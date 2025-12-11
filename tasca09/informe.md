@@ -341,8 +341,7 @@ Un cop fet això reiniciem la maquina i confirmem que discos s'han muntat correc
 
 # Conclusió
 
-Per poder millorar aquest producte podriem millorar els seguents apartats, per exempla un dels problemes és que s'han de crear els usuaris i grups al servidor i a la maquina client, això no es optim ja que en un entorn real en el qual podrien haber més de 20 ordinadors de part del client. Basicament seria repetir el mateix pas 21 vegades (20 per els client i 1 per el servidor)
+En general, la creació del servidor NFS és una eina potent i útil, però la manera com l'hem utilitzat presenta algunes limitacions importants. Un dels principals inconvenients és haver de crear els usuaris i grups tant al servidor com a cada màquina client, això fa repetir els mateixos passos moltes vegades i generar una càrrega de feina innecessària.
 
-Una solució real per aquest problema seria centralitzar i fer un unic lloc en el qual hi hagin les dades per inicar sessió com per exemple LDAP aixì per evitar feina innecesaria.
-
+Per evitar aquest problema i millorar l’eficiència del sistema, seria molt més adequat centralitzar l’autenticació i la gestió d’usuaris. Una solució realista seria implementar un servidor LDAP, com OpenLDAP o una alternativa similar, que permeti administrar comptes, grups i paràmetres específics per a cada departament des d’un únic punt. Això no només simplificaria el manteniment, sinó que també incrementaria la seguretat i faria el desplegament molt més escalable de cara al futur. Pero en conclusió a sigut una tasca bastant llarga perque hem hagut de repetir pasos bastants cops. Tema usuaris i grups per exemple.
 
