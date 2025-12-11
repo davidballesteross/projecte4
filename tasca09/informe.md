@@ -193,7 +193,7 @@ rpcinfo -p 192.168.56.103
 ```
 ![Captura 24](img/24.png)
 
-Per poder comprobar en la maquina haurem d'instalar el paquet nfs-common, això ho farem amb la seguent comanda
+Per poder comprobar en la maquina haurem d'instalar el paquet nfs-common, això ho farem amb la seguent comanda en el client.
 
 ```bash
 sudo apt install nfs-common -y
@@ -204,10 +204,10 @@ Un cop fet això en conectarem al servidor amb la comanda showmount -e IP
 En el meu cas sera la seguent comanda 
 
 ```bash
-showmount -e 192.168.56.101
+showmount -e 192.168.56.103
 ```
 
-![comanda](img/12.png)
+![Captura 25](img/25.png)
 
 En la qual podem veure que la carpeta /srv/nfs
 
