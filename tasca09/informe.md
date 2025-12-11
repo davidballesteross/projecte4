@@ -123,11 +123,13 @@ Per poder crear els grups i usuaris farem instalem la aplicació "users and grou
 
 ![Captura 13](img/13.png)
 
-Per comporbar que tots els grups s'han creat correctament farem servir el grep tal i com hem fet avans
-
 ![Captura 14](img/14.png)
 
 ![Captura 15](img/15.png)
+
+![Captura 16](img/16.png)
+
+![Captura 17](img/17.png)
 
 Hem de comprobar que els numeros UID i GID (els números d'identificació) coincideixin a les dues màquines.
 
