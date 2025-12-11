@@ -213,7 +213,7 @@ En la qual podem veure que la carpeta /srv/nfs
 
 ---
 
-# Fase 3: L'Exportació d'Administració (El Dilema del root_squash)
+# Fase 3
 
 A continuació farem una prova 1 (L'error comú)
 
@@ -223,7 +223,7 @@ Previament ja hem exportat l'arxiu /srv/nfs per tant el seguent pas que hem de f
 mkdir /mnt/admin_tools 
 ```
 
-![Creació de la carpeta](img/13.png)
+![Captura 25](img/25.png)
 
 Un cop que tenim creada la carpeta, el seguent pas sera muntar el recurs, això ho farem amb la comanda mount 
 
@@ -233,15 +233,15 @@ mount -t nfs 192.168.56.101:/srv/nfs/admin_tools /mnt/admin_tools
 
 Podrem veure no podem crear cap arxiu ja que no tenim els pemisos ja que el root de la maquina client i el root del servidor no es el mateix
 
-![Carpeta](img/14.png)
+![Captura 26](img/26.png)
 
 Mentre que si intentem crear un arxiu amb l'usuari admin si que podrem, ja que aquest usuari si que te permisos en aquesta carpeta
 
-![Carpeta](img/15.png)
+![Captura 27](img/27.png)
 
 Podem veure que l'arxiu que hem creat es propietat de admin01
 
-![Carpeta](img/17.png)
+![Captura 28](img/28.png)
 
 A continuació ensenyare com fer per poder crear arxius amb root
 
@@ -273,24 +273,12 @@ mount -t nfs 192.168.56.101:/srv/nfs/admin_tools /mnt/admin_tools
 
 Un cop fet això podrem crear un now arxiu, per exemple en aquest cas he creat una arxiu anomenat file2
 
-![Carpeta](img/16.png)
+![Captura 29](img/29.png)
 
-![Carpeta](img/18.png)
+![Captura 30](img/30.png)
 
 Això a causa de que hem modificat l'arxiu /etc/exports fent que el root de la maquina fisica sigui el mateix que el root del servidor, per tant tenim total llibertat 
 
 ---
 
-# Fase 4: L'Exportació de Desenvolupament (Permisos rw vs ro)
-
-A continuació el client ens demana el seguent la xarxa d'administració (p.ex., 192.168.56.0/24) hi pugui escriure, però que la xarxa de consultors (p.ex., 192.168.56.100) només pugui llegir.
-
-Per poder fer això haurem de modificar l'arxiu /etc/exports i substituir la linia "/srv/nfs/dev_projects *(rw,sync,no_subtree_check)" per les seguents 
-
-```bash
-/srv/nfs/dev_projects 192.168.56.0/24(rw,sync,no_subtree_check)
-/srv/nfs/dev_projects 192.168.56.100/24(ro,sync,no_subtree_check)
-```
-
-Això ho fem per poder assignar permisos depened de la ip que tingui l'usuari
 
