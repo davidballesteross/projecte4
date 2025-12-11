@@ -133,19 +133,5 @@ Per poder crear els grups i usuaris farem instalem la aplicació "users and grou
 
 Hem de comprobar que els numeros UID i GID (els números d'identificació) coincideixin a les dues màquines.
 
-Un cop fet això instalarem els paquets neccesairs del servei NFS al servidor, per fer això farem la seguent comanda
+![Captura 18](img/18.png)
 
-```bash
-apt install nfs-kernel-server -y
-```
-Per comprobar que s'ha instalat correctament podem fer un systemctl status
-
-```bash
-systemctl status nfs-kernel-server
-```
-
-![status](img/8.png)
-
----
-
-A continuació farem una prova 1 (L'error comú)
