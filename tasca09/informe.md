@@ -314,7 +314,7 @@ Podem veure que no podem crear cap arxius dins de la carpeta dev_projects ja que
 
 ---
 
-# Fase 5: Muntatge Automàtic amb /etc/fstab
+# Fase 5
 
 
 Ara per ultim modificarem l'arxiu /etc/fstab per poder configurar que els recursos compartits no es tinguin que muntar cada vegada que entrem
@@ -328,14 +328,14 @@ sudo nano /etc/fstab
 En el qual haurem d'afegir aquestes dues lines al final
 
 ```bash
-192.168.56.101:/srv/nfs/admin_tools /mnt/admin_tools nfs defaults 0 0
-192.168.56.101:/srv/nfs/dev_projects /mnt/dev_projects nfs defaults 0 0
+192.168.56.103:/srv/nfs/admin_tools /mnt/admin_tools nfs defaults 0 0
+192.168.56.103:/srv/nfs/dev_projects /mnt/dev_projects nfs defaults 0 0
 ```
-![arxiu](img/26.png)
+![Captura 36](img/36.png)
 
 Un cop fet això reiniciem la maquina i confirmem que discos s'han muntat correctament 
 
-![discos muntats](img/27.png)
+![Captura 37](img/37.png)
 
 ---
 
