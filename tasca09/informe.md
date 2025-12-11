@@ -274,4 +274,87 @@ Això a causa de que hem modificat l'arxiu /etc/exports fent que el root de la m
 
 ---
 
+# Fase 4
+
+A continuació el client ens demana el seguent la xarxa d'administració (p.ex., 192.168.56.0/24) hi pugui escriure, però que la xarxa de consultors (p.ex., 192.168.56.100) només pugui llegir.
+
+Per poder fer això haurem de modificar l'arxiu /etc/exports i substituir la linia "/srv/nfs/dev_projects *(rw,sync,no_subtree_check)" per les seguents 
+
+```bash
+/srv/nfs/dev_projects 192.168.56.0/24(rw,sync,no_subtree_check)
+/srv/nfs/dev_projects 192.168.56.140(ro,sync,no_subtree_check)
+```
+![Captura 33](img/33.png)
+
+Això ho fem per poder assignar permisos depened de la ip que tingui l'usuari
+
+Tot seguit reinciem el servei amb la comanda 
+
+```bash
+systemctl restart nfs-kernel-server
+```
+
+Un cop fet això haurem de muntar el disc dev_projects per comprobar que tot funciona correctament.
+
+El primer pas sera crear la carpeta amb la seguent comanda
+
+```bash
+mkdir /mnt/dev_projects
+```
+
+El seguent pas que farem sera modificar la nostre ip, en aquest cas probarem amb la ip ```192.168.56.199``` per poder fer això anirem a la configuració de xarxa i colocarem la ip manualment i muntarem el disc
+
+![Configuració de xarxa](img/20.png)
+
+Un cop fet això si fem login l'usuari dev01 com que tenim una ip dins del rang que pot editar dins de la carpeta si que podrem crear arxius
+
+![Creació d'arxiu](img/22.png)
+
+Mentre que canviem la ip ```192.168.56.140``` podrem observar que no podem editar els arxius però si que podem veure que hi ha a la carpeta, haurem de tornar a desmuntar i muntar el disc
+
+![Canvi d'IP](img/23.png)
+
+Podrem veure que podem accedir a la carpeta i veure que hi ha dins però no podrem modificar el contigut ja que nomes tenim permisos de lectura
+
+![permisos](img/24.png)
+
+Ara per ultim farem login amb l'usuari admin01 i intentarem crear un arxiu en la carpeta dev_projects
+
+![permisos](img/25.png)
+
+Podem veure que no podem crear cap arxius dins de la carpeta dev_projects ja que no tenim els permisos neccesaris ja que l'usuari admin01 no forma part del grup dev01
+
+---
+
+# Fase 5: Muntatge Automàtic amb /etc/fstab
+
+
+Ara per ultim modificarem l'arxiu /etc/fstab per poder configurar que els recursos compartits no es tinguin que muntar cada vegada que entrem
+
+Per començar farem la seguent comanda per entrar al arxiu
+
+```bash
+sudo nano /etc/fstab
+```
+
+En el qual haurem d'afegir aquestes dues lines al final
+
+```bash
+192.168.56.101:/srv/nfs/admin_tools /mnt/admin_tools nfs defaults 0 0
+192.168.56.101:/srv/nfs/dev_projects /mnt/dev_projects nfs defaults 0 0
+```
+![arxiu](img/26.png)
+
+Un cop fet això reiniciem la maquina i confirmem que discos s'han muntat correctament 
+
+![discos muntats](img/27.png)
+
+---
+
+# Conclusió
+
+Per poder millorar aquest producte podriem millorar els seguents apartats, per exempla un dels problemes és que s'han de crear els usuaris i grups al servidor i a la maquina client, això no es optim ja que en un entorn real en el qual podrien haber més de 20 ordinadors de part del client. Basicament seria repetir el mateix pas 21 vegades (20 per els client i 1 per el servidor)
+
+Una solució real per aquest problema seria centralitzar i fer un unic lloc en el qual hi hagin les dades per inicar sessió com per exemple LDAP aixì per evitar feina innecesaria.
+
 
