@@ -345,3 +345,4 @@ En general, la creació del servidor NFS és una eina potent i útil, però la m
 
 Per evitar aquest problema i millorar l’eficiència del sistema, seria molt més adequat centralitzar l’autenticació i la gestió d’usuaris. Una solució realista seria implementar un servidor LDAP, com OpenLDAP o una alternativa similar, que permeti administrar comptes, grups i paràmetres específics per a cada departament des d’un únic punt. Això no només simplificaria el manteniment, sinó que també incrementaria la seguretat i faria el desplegament molt més escalable de cara al futur. Pero en conclusió a sigut una tasca bastant llarga perque hem hagut de repetir pasos bastants cops. Tema usuaris i grups per exemple.
 
+- [Tornar al enunciat](readme.md)
