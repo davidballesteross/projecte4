@@ -36,7 +36,7 @@ groupadd admin
 ![Captura 4](img/4.png)
 
 ---
-Per poder comprovar que els grups s'han creat correctament farem servir la comanda greep per buscar els 2 grups, el grup **devs** i el grup **admin**, hem d'entrar dins de l'arxiu /etc/groups, per fer-ho farem la seguent comanda:
+Per poder comprovar que els grups s'han creat correctament farem servir la comanda greep dev per buscar els 2 grups, el grup **devs** i el grup **admin**, hem d'entrar dins de l'arxiu /etc/groups, per fer-ho farem la seguent comanda:
 
 ```bash
 grep devs /etc/group
