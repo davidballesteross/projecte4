@@ -58,7 +58,7 @@ Un cop que ja tenim els grups creats el seguent pas sera crear l'usuari **dev01*
 useradd -G devs -m -s /bin/bash dev01
 ```
 
-Per confirmar que esta creat l'usuari dev01 correctament fem servir el grep
+Per confirmar que esta creat l'usuari dev01 correctament fem servir el grep dev un alre cop pero ara hauriem de fer dev01 per localitzar especialment aquell usuari.
 
 ```bash
 grep dev01 /etc/passwd
@@ -67,13 +67,13 @@ grep dev01 /etc/passwd
 ![Captura 6](img/6.png)
 
 ---
-Un cop que ja tenim l'usuari dev01 el seguent pas sera crear l'usuari **admin01** que formi part del grup **admin**, per fer això farem servir la seguent comanda
+Un cop que ja tenim l'usuari dev01 el seguent pas sera crear el segon usuari que en aquest cas seria **admin01**, ha de formar part del grup **admin**, per fer això farem servir la seguent comanda
 
 ```bash
 useradd -G admin -m -s /bin/bash admin01
 ```
 
-Per confirmar que esta creat l'usuari **admin01** correctament fem servir la comanda grep com anteriorment
+Per confirmar que esta creat l'usuari **admin01** correctament fem servir la comanda grep com anteriorment pero hem de posar grep admin01 per localitzar el usuari admin i no dev.
 
 ```bash
 grep admin01 /etc/passwd
@@ -81,15 +81,14 @@ grep admin01 /etc/passwd
 ![Captura 7](img/7.png)
 
 ---
-Un cop que ja hem creat els grups i els usuaris, el seguent pas sera crear el directori per als projectes de desenvolupament en la qual la ruta que ens demana és la seguent /srv/nfs/dev_projects, per crear les totes les carpetas d'una sola comanda farem el seguent:
-
+Un cop que ja hem creat els grups i els usuaris, el seguent pas es crear el directori per als projectes en la qual la ruta que ens demana és la seguent /srv/nfs/dev_projects, per crear les totes les carpetes sense haber de fer mes d'una comanda hauriem de possar mkdir per crear carpetes i -p per ferles totes.
 ```bash
 mkdir /srv/nfs/dev_projects -p
 ```
 ![Captura 8](img/8.png)
 
 ---
-Un cop fet això crearem el directori per a les eines d'administració en la qual la ruta sera /srv/nfs/admin_tools
+Un cop fet això crearem el directori per a les eines d'administració en la qual la ruta sera /srv/nfs/admin_tools.
 
 ```bash
 mkdir /srv/nfs/admin_tools
@@ -98,7 +97,7 @@ mkdir /srv/nfs/admin_tools
 ![Captura 9](img/9.png)
 
 ---
-Per ultim configurarem els permisos de les carpetas, en aquest utilitzare la comanda Chown per canviar la propietat de la carpeta.
+Per ultim hem de configurar els permisos de les carpetes, en aquest cas utilitzare la comanda Chown per canviar les propietats de la carpeta.
 
 ```bash
 chown root:devs /srv/nfs/dev_projects
@@ -109,7 +108,7 @@ chown root:admin /srv/nfs/admin_tools
 ```
 ![Captura 10](img/10.png)
 
-Un cop fet això hem d'assignar els permisos de la carpeta amb la comanda chmod 770
+Un cop possat les propietats, hem d'assignar els permisos a la carpeta (dev_projects) amb la comanda chmod 770
 
 ```bash
 chmod 770 /srv/nfs/dev_projects
@@ -121,15 +120,14 @@ chmod 770 /srv/nfs/admin_tools
 
 ![Captura 11](img/11.png)
 
-Per comprobar que els permisos estan correctament farem ls -l per poder veure els permisos de cada carpeta
+Per comprobar que els permisos s'han aplicat correctament hem de utilitzar la següent comanda per veure els permisos.
 
 ![Captura 12](img/12.png)
 
 ---
 ## Fase 2
 
-Per poder continuar hem de crear els grups i usuaris dins de la maquina client (Zorin)
-Per poder crear els grups i usuaris farem instalem la aplicació "users and groups"
+Per poder continuar hem de crear els grups i usuaris dins de la maquina client (Zorin), per crear els grups i usuaris farem instalem la aplicació "users and groups". Hem de seguir els següents pasos tal com ho indico a les captures.
 
 ![Captura 13](img/13.png)
 
@@ -141,14 +139,15 @@ Per poder crear els grups i usuaris farem instalem la aplicació "users and grou
 
 ![Captura 17](img/17.png)
 
-Hem de comprobar que els numeros UID i GID (els números d'identificació) coincideixin a les dues màquines.
+Hem de comprobar que els números d'identificació coincideixin a les dues màquines tal com surt en la captura.
 
 ![Captura 18](img/18.png)
+Els numeros que surten hem de mirar si son els mateixos que ens dona l'altre maquina virtual i si son els mateixos podem continuar, sino has de tornar a crear els grups.
 
 ---
 ## Instal·lació i configuració del servei NFS
 
-Ara instal·larem el servidor NFS amb la comanda:
+Ara instal·larem el servidor NFS amb la comanda: sudo apt install (i el nom de el servidor que volem instalar)
 
 ```bash
 sudo apt install nfs-kernel-server -y
@@ -156,14 +155,14 @@ sudo apt install nfs-kernel-server -y
 
 ![Captura 19](img/19.png)
 
-I veiem que s'ha instal·lat correctament.
+Veiem que s'ha instal·lat correctament i podem continuar, sino hem de tornar a fer la comanda i si surt error hauriem de comprobar si tenim wifi.
 
 ![Captura 20](img/20.png)
 
 ---
-Ara caldrà configurar l'exportació dels directoris amb les opcions corresponents.
+En aquest pas hem de configurar l'exportació dels directoris amb les opcions corresponents.
 
-Per a fer-ho haurem de editar l'arxiu `/etc/exports`.
+Per a fer-ho haurem de editar l'arxiu `/etc/exports`. Pero per poder editar-ho correctament hem d'utilitzar sudo nano, sino no deixara editar el archiu correctament.
 
 ```bash
 sudo nano /etc/exports
@@ -172,7 +171,7 @@ sudo nano /etc/exports
 ![Captura 21](img/21.png)
 
 ---
-Afegirem una linia adicional al final del arxiu, en aquest cas sera la seguent 
+El que necesitem editar simplement seria afegir aquesta comanda a sota de tot com surt en la següent captura.
 
 ```bash
 /srv/nfs *(rw,sync,no_subtree_check)
@@ -181,28 +180,28 @@ Afegirem una linia adicional al final del arxiu, en aquest cas sera la seguent
 ![Captura 22](img/22.png)
 
 ---
-Per poder aplicar el canvis haurem de reinciar el servei amb la comanda
+Ara hem d'aplicar el canvis, ho haurem de fer reinciant el servei amb la comanda sudo system restart (i el nom del servidor kernel). La comanda seria la següent:
 
 ```bash
 sudo systemctl restart nfs-kernel-server
 ```
-Un cop fet això l'iniciem i comprobarem que tot funciona correctament 
-
-En el servidor podem fer la comanda 
+Cuan acabem reiniciant el servei hem d'iniciarlo i comprobar que tot esta correcta i funciona.
 
 ```bash
 exportfs -u
 ```
-Amb la qual podrem veure quins arxius es poden exportar
+Amb aquesta comanda podem veure quins arxius es poden exportar. La captura et mostra que hauria de sortir.
 
 ![Captura 23](img/23.png)
 
 ---
-Tambe podem fer la seguent comanda per veure des-de quin port treballa, en aquest cas ho fa amb el port 2049
+Tambe podem fer la seguent comanda per veure en quin port treballa, en aquest cas ho fa amb el port 2049 que es el que inidica **NFS**.
 
 ```bash
-rpcinfo -p 192.168.56.103 
+rpcinfo -p 192.168.56.103
 ```
+(Hem de possar la ip de la maquina que seria basicament la del servidor)
+
 ![Captura 24](img/24.png)
 
 ---
