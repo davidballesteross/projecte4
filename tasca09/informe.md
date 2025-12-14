@@ -205,16 +205,15 @@ rpcinfo -p 192.168.56.103
 ![Captura 24](img/24.png)
 
 ---
-Per poder comprobar en la maquina haurem d'instalar el paquet nfs-common, això ho farem amb la seguent comanda en el client.
+Per poder comprobar si hem fet be el anterior pas hem d'instalar el paquet nfs-common amb sudo apt install.
+Ho hem de fer desde el cmd del client. Si ho fas desde el servidor no ho podrem comprobar correctament.
 
 ```bash
 sudo apt install nfs-common -y
 ```
 
 ---
-Un cop fet això en conectarem al servidor amb la comanda showmount -e IP
-
-En el meu cas sera la seguent comanda 
+Cuan hem acabat de instalar nfs-common ens hem de conectar al servidor, ho hem de fer amb la comanda showmount -e (192.168.56.103) aquesta seria la meva comanda ja ques es la meva ip pero hauries de fer amb la teva ip.
 
 ```bash
 showmount -e 192.168.56.103
@@ -222,15 +221,13 @@ showmount -e 192.168.56.103
 
 ![Captura 25](img/25.png)
 
-En la qual podem veure que la carpeta /srv/nfs
-
 ---
 
 # Fase 3
 
-A continuació farem una prova 1 (L'error comú)
+A hem de fer una prova.
 
-Previament ja hem exportat l'arxiu /srv/nfs per tant el seguent pas que hem de fer sera muntar aquest recurs a la carpeta /mnt/admin_tools, en un principi aquesta carpeta no existeix, per tant el primer pas sera crear-la, això ho farem amb la seguent comanda
+Previament ja hem fet tots els pasos anterios hem exportat l'arxiu /srv/nfs, per tant el seguent pas que hem de fer sera montar el recurs a la carpeta /mnt/admin_tools, aquesta carpeta no existeix, per tant el primer pas es crear-la, ho farem amb la seguent comanda mkdir que s'utlitza per crear carpetas com he mencionat anteriorment i possar la ruta de la carpeta.
 
 ```bash
 mkdir /mnt/admin_tools 
@@ -239,32 +236,32 @@ mkdir /mnt/admin_tools
 ![Captura 26](img/26.png)
 
 ---
-Un cop que tenim creada la carpeta, el seguent pas sera muntar el recurs, això ho farem amb la comanda mount 
+Cuan ja la tenim creada la carpeta /mnt/admin_tools, el seguent pas es montar el recurso, això ho hem de fer amb la comanda mount -t.
 
 ```bash
 mount -t nfs 192.168.56.101:/srv/nfs/admin_tools /mnt/admin_tools
 ```
 
-Podrem veure no podem crear cap arxiu ja que no tenim els pemisos ja que el root de la maquina client i el root del servidor no es el mateix
+Com podem veure a la captura no podem crear cap arxiu ja que no tenim els pemisos ja que el root de la maquina client i el root del servidor no seria el mateix. Si et deixa crear el archiu comproba anteriorment si has aplicat be els permisos.
 
 ![Captura 27](img/27.png)
 
 ---
-Mentre que si intentem crear un arxiu amb l'usuari admin si que podrem, ja que aquest usuari si que te permisos en aquesta carpeta
+Si intentem crear un arxiu amb l'usuari admin si que podrem, ja que aquest usuari si que te permisos en aquesta carpeta, si no et deixa et recomano que tornis a veure els permisos.
 
 ![Captura 28](img/28.png)
 
 ---
-Podem veure que l'arxiu que hem creat es propietat de admin01
+Podriem veure que l'arxiu que hem creat es de la propietat de admin01 com es veu a la captura.
 
 ![Captura 29](img/29.png)
 
-A continuació ensenyare com fer per poder crear arxius amb root
+A continuació farem la segona prova que consisteix en poder crear arxius amb root.
 
 ---
-Prova 2 (La Solució)
+Prova 2
 ---
-Per començar haurem d'editar l'arxiu /etc/exports en el qual substituirem la linia que hem escrit previament per les seguents.
+Per començar hem d'editar l'arxiu /etc/exports en el qual ja habiem possat una linea, la hem de esborrar i sustituir per les següents dos lineas.
 
 ```bash
 /srv/nfs/admin_tools *(rw,sync,no_subtree_check,no_root_squash)
@@ -272,84 +269,82 @@ Per començar haurem d'editar l'arxiu /etc/exports en el qual substituirem la li
 ```
 
 ---
-Un cop fet això reiniciem el servei un altre cop amb la comanda 
+Un cop possat les dos lineas i sustituit per la linea anterior hem de reiniciar el servei per poder aplicar els canvis com hem fet anteriorment. 
 
 ```bash
 systemctl restart nfs-kernel-server
 ```
 
 ---
-A continuació haurem de desmuntar i muntar un altre cop el recurs, en el meu cas la comanda per desmuntar sera 
+Ara haurem de desmontar i montar un altre cop el recurs, la meva comanda seria aquesta: 
 
 ![Captura 30](img/30.png)
 
 ---
-Un cop fet això podrem crear un now arxiu, per exemple en aquest cas he creat una arxiu anomenat file2
+Un cop montat i desmontat el recurs ja podem crear un nou arxiu, per exemple en aquest cas he creat una arxiu anomenat file2 ja que el file1 ja esta creat.
 
 ![Captura 32](img/32.png)
 
 ![Captura 31](img/31.png)
 
-Això a causa de que hem modificat l'arxiu /etc/exports fent que el root de la maquina fisica sigui el mateix que el root del servidor, per tant tenim total llibertat 
+Si et deixa es perque hem modificat l'arxiu /etc/exports fent que el root de la maquina fisica sigui el mateix que el root del servidor, per tant tenim total llibertat per modificar l'arxiu.
 
 ---
 
 # Fase 4
 
-A continuació el client ens demana el seguent la xarxa d'administració (p.ex., 192.168.56.0/24) hi pugui escriure, però que la xarxa de consultors (p.ex., 192.168.56.100) només pugui llegir.
+A continuació el client ens posa un altre prova, la prova seria que la xarxa d'administració (192.168.56.0/24) hi pugui escriure i editar-ho, però la xarxa de consultors (192.168.56.128) només pugui llegir.
 
 ---
-Per poder fer això haurem de modificar l'arxiu /etc/exports i substituir la linia "/srv/nfs/dev_projects *(rw,sync,no_subtree_check)" per les seguents 
+Per poder fer això haurem de modificar l'arxiu /etc/exports i substituir la linia "/srv/nfs/dev_projects *(rw,sync,no_subtree_check)" per les seguents:
 
 ```bash
 /srv/nfs/dev_projects 192.168.56.0/24(rw,sync,no_subtree_check)
-/srv/nfs/dev_projects 192.168.56.140(ro,sync,no_subtree_check)
+/srv/nfs/dev_projects 192.168.56.128(ro,sync,no_subtree_check)
 ```
 ![Captura 33](img/33.png)
 
-Això ho fem per poder assignar permisos depened de la ip que tingui l'usuari
+Aquestes lineas les possem per poder assignar permisos, si tenen una ip podran editar-ho, si tenen la altre no podran. Depen de la ip que tingui l'usuari.
 
 ---
-Tot seguit reinciem el servei amb la comanda 
+Un cop fet, reinciem el servei.
 
 ```bash
 systemctl restart nfs-kernel-server
 ```
 
 ---
-Un cop fet això haurem de muntar el disc dev_projects per comprobar que tot funciona correctament.
-
-El primer pas sera crear la carpeta amb la seguent comanda
+Ara hem de montar el disc dev_projects per comprobar que tot funciona correctament. Primer hem de crear la carpeta.
 
 ```bash
 mkdir /mnt/dev_projects
 ```
 
 ---
-El seguent pas que farem sera modificar la nostre ip, en aquest cas probarem amb la ip ```192.168.56.199``` per poder fer això anirem a la configuració de xarxa i colocarem la ip manualment i muntarem el disc
+El seguent pas que farem sera modificar la nostre ip, en aquest cas probarem la ip ```192.168.56.199``` per poder fer això anirem a la configuració de xarxa i colocarem la ip manualment i montarem el disc
 
 ![Captura 34](img/34.png)
 
 ---
 
-Ara per ultim fare login amb l'usuari dev01 i intentare crear un arxiu en la carpeta dev_projects
+Per ultim hem de fer login amb l'usuari dev01 i probem a crear un arxiu en la carpeta dev_projects
 
 ![Captura 35](img/35.png)
 
-Podem veure que no podem crear cap arxius dins de la carpeta dev_projects ja que no tenim els permisos neccesaris ja que l'usuari dev01 no forma part del grup admin
+Podem veure que no podem crear cap arxiu dins de la carpeta dev_projects perque no tenim els permisos neccesaris ja que l'usuari dev01 no forma part del grup admin.
 
 ---
 # Fase 5
-
-Ara per ultim modificarem l'arxiu /etc/fstab per poder configurar que els recursos compartits no es tinguin que muntar cada vegada que entrem.
 ---
-Per començar farem la seguent comanda per entrar al arxiu
+**Ara per ultim modificarem l'arxiu /etc/fstab per poder configurar els recursos compartits, per a que no es tinguin que montar cada vegada que entrem.**
+---
+Per començar hem d'entrar al arxiu.
 
 ```bash
 sudo nano /etc/fstab
 ```
 
-En el qual haurem d'afegir aquestes dues lines al final
+Ara hauriem d'afegir aquestes dues lines al final de la mateixa manera que es veu a la caprtura.
 
 ```bash
 192.168.56.103:/srv/nfs/admin_tools /mnt/admin_tools nfs defaults 0 0
@@ -358,7 +353,7 @@ En el qual haurem d'afegir aquestes dues lines al final
 ![Captura 36](img/36.png)
 
 ---
-Un cop fet això reiniciem la maquina i confirmem que discos s'han muntat correctament 
+Un cop fet això hem de reiniciar la maquina i confirmem si els discos s'han montat correctament. 
 
 ![Captura 37](img/37.png)
 
