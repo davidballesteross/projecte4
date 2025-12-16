@@ -8,33 +8,4 @@ Inclou el desenvolupament d’un **e-commerce complet a Figma**, la creació d�
 Aquest producte reflecteix competències transversals tant tècniques com creatives.
 
 ---
-
-## Contingut del producte
-
-### **1. Identitat visual i introducció a Figma**
-- Fonaments i eines principals de Figma  
-- Estructures bàsiques de navegació  
-- Creació d’estils i components reutilitzables  
-
-### **2. Landing Page comercial + Checkout**
-- Disseny professional d’una landing comercial  
-- Anatomia i fases d’un checkout d’e-commerce  
-- Bones pràctiques de disseny digital  
-
-### **3. E-commerce complet a Figma**
-Inclou:
-- Landing Page  
-- Pàgina de producte  
-- Cistell  
-- Registre / convidat  
-- Pagament  
-- Confirmació  
-- Tot el prototipat navegable  
-
-### **4. Sostenibilitat i circularitat**
-- Prova escrita d’avaluació  
-- Reflexió personal sobre sostenibilitat i IT  
-- Circularitat de la família professional informàtica  
-
----
-
+](https://planner.cloud.microsoft/webui/plan/hP8JIKeSoUSBZRCi4bIvUJYACd8V/view/board?tid=c7b5981a-7820-4ac8-ae65-03515ea81317)
