@@ -4,217 +4,220 @@ Per comneçar el primer pas sera tindre una maquina client windows amb un disc p
 
 ![Captura 1](img/t02.1.png)
 
-Un cop fet això el seguent pas sera inicialitzar el disc, per fer això el primer pas sera inicar la maquina i obrir l'administrador de disc.
+**A dins de la màquina obrirem l'administrador de discos i farem click dret sobre ell, li donarem a siguiente fins que quedi així**
 
-![Captura 2](img/t02.2.png)
+![image](./img/14.png)
 
-Un cop fet això el que farem sera crear un volum simple en el disc, per fer-ho hem de fer click dret sobre el disc i escollirem la opcio de "Nuevo volumen simple"
+**Ara crearem documents per fer les proves de copa de seguretat**
 
-Un cop fet això s'obrira una finestra en la qual unicament farem siguiente siguiente fins que tinguem el volum creat i es vegi tal i aixì
-
-![Crear volum simple](img/3.png)
-
-El seguent pas sera instalar duplicati, per fer això anirem al seguent enllaç
-
-[Link de descarrega](https://duplicati.com/download)
-
-Instalarem la versio per el nostre equip, en aquest cas instalarem la versió per windows
-
-![Crear volum simple](img/4.png)
-
-Un cop que tinguem instalat el archiu.exe l'executarem i farem siguiente siguiente, aceptant els termes neccesaris fins que tinguem el duplicati instalat correctament
-
-![Instalació duplicati](img/5.png)
-
-Un cop instalat, s'obrira una pestanya en el nostre navegador en el qual ens demanara que escollim una constrasenya per fer servir duplicati.
-
-En la qual podem escollir qualsevol contrasenya ja que sera personal, important no olvidar-la
-
-![duplicati](img/6.png)
+![image](./img/15.png)
 
 
-Un cop que ja tenim el duplicati, crearem alguns documents de proba per poder fer la copia de seguretat
+**El primer pas serà entrar al nostre navegador i entrar a la Web de duplicati, seguidament instal·larem segons el nostre sistema operatiu, en aquest cas Windows**
 
-![Creació de documents](img/8.png)
+![image](./img/1.png)
 
-El seguent pas sera configurar les copies de seguretat que voldrem, aixi que começarem escollint la opcio de backup add i add new backup,
 
-Un cop aqui haurem de colocar les dades de la nostra copia 
+**Un cop instal·lat obrim el descarregable i començem amb la instal·lació**
 
-![duplicati](img/7.png)
+![image](./img/2.png)
 
-El seguent pas sera escollir on tindrem guardada la copia, en aquest cas la guardarem en el nostre cas la guardarem en el disc secundari
 
-![Escollir lloc](img/9.png)
+**Acceptem y continuem**
 
-Un cop fet això hem d'escollir quins documents volem fer la copia
+![image](./img/3.png)
 
-![Escollir documents](img/10.png)
 
-Tot seguit haurem d'escollir cada quan de temps volem que és realitzi la copia, en aquest cas la farem cada 1 hora 
+**Seguim amb la instal·lació com a les següents captures**
 
-![Escollir temps](img/11.png)
+![image](./img/4.png)
 
-Un cop que arribem aqui escollirem les opcions que en demani i un cop fet, ja tindrem la nostra copia creada
 
-![opcions](img/12.png)
+![image](./img/5.png)
 
-El proxim pas sera fer el mateix però amb l'unic canvi que farem la copia en el nuvol, en aquest cas farem servir el google drive, per fer-ho farem el seguent però unicament modificarem el seguent.
 
-El lloc en el qual guardarem la copia, en la qual haurem de vincular la conta, per fer això farem click a AuthID
+**Haurem de donar-li permisos per fer canvis al dispositiu**
 
-![googledrive](img/13.png)
+![image](./img/6.png)
 
-L'altre cosa que haurem d'editar sera cada quan és fa la copia, en aquest cas sera cada dia a las 6 de la tarda
 
-![Horari](img/14.png)
+**Esperem a que es completi**
 
-Un cop fet aixo ja tindrem les dues copies creades
+![image](./img/7.png)
 
-![copies creades](img/15.png)
 
-El seguent pas que farem sera borrar els documents de proba per poder comprobar que podem recuperar la copia correctament 
+**Un cop completat, li donarem a Finish**
 
-![Carpeta documents](img/16.png)
+![image](./img/8.png)
 
-Un cop que ja hem borrat els documents, el seguent pas sera recuperar la copia, per poder fer això anirem a "Restores" i farem click a "Start"
 
-Escollirem la copia que volem restaurar, en aquest cas proba
+**Al donar-li a finish ens obrirà una pàgina al nostre navegador, podrem canviar la contrasenya, però en aquest cas no la canviarem**
 
-![Escollir copia](img/17.png)
+![image](./img/9.png)
 
-escollirem els fitxers que volem restaurar, en aquest cas la carpeta documents
 
-![Escollir documents](img/18.png)
+**Afagirem un backup**
 
-Farem siguiente siguiente i un cop fet això ja tindrem feta la restauració 
+![image](./img/10.png)
 
-![Restauració feta](img/19.png)
+![image](./img/11.png)
 
-![Restauració feta](img/20.png)
 
-Per poder restaurar la copia que hem fet a google drive ho farem igual però selecionarem l'altre copia
+**Ara posarem la informació del disc**
 
----
+![image](./img/12.png)
 
-Part 2: Còpia seguretat servidor Linux
+**Posarem que el backup es fagi al disc secundari**
 
-Per poder començar haurem de tindre una maquina linux, en aquest cas farem servir una maquina ubuntu server per realitzar la prova.
+![image](./img/16.png)
 
-El primer pas sera tindre la maquina actualitzada per tant farem 
 
-```bash
-sudo apt update && sudo apt upgrade -y 
+**El següent serà seleccionar el que volem que es fagi un backup, en aquest cas seran els 4 documents que hem creat abans**
+
+![image](./img/17.png)
+
+**Posarem que es fagi cada 1 hora**
+
+![image](./img/18.png)
+
+
+**Per últim li donarem a Submit i ja estarà creat**
+
+![image](./img/19.png)
+
+
+**Ara farem el mateix pero amb Google Drive**
+
+![image](./img/20.png)
+
+**La farem cada dia a les 6 de la tarda**
+
+![image](./img/21.png)
+
+
+![image](./img/22.png)
+
+
+**Ara borrarem els documents per veure si es fa el backup**
+
+![image](./img/23.png)
+
+**Anirem a Restore a la part esquerra i despres farem click a restore i start**
+
+![image](./img/24.png)
+
+![image](./img/25.png)
+
+**Ja ho tindriem fet**
+
+![image](./img/26.png)
+
+![image](./img/27.png)
+
+
+**Ara pasarem a la part de Ubuntu**
+
+**Farem servir Duplicaty**
+
+**Primer de tot farem la següent comanda**
+
 ```
-
-Farem servir el Duplicity  per poder fer copies en local i en remot.
-
-Per començar haurem de tindre un disc secundari, en aquest cas farem servir un disc de 10 Gb
-
-Un cop que ja tenim el disc, el primer pas sera donar-li un format, li donarem el format xfs i muntarem al disc a la ruta /media/backup com que aquesta ruta no existeix, el primer pas sera crear la ruta, això ho farem de la seguent forma
-
-```bash
 mkdir /media/backup 
 ```
 
-![carpeta de backup](img/21.png)
+![image](./img/28.png)
 
-Un cop fet això haurem de donar-li format al disc, això ho farem amb l'eina fdisk, per tant el primer pas sera 
+**Ara haurem de donar-li forma al disc**
 
-```bash
+```
 sudo apt install fdisk
 ```
-Un cop fet això farem fdisk -l per veure el disc que tenim
 
-```bash
+**Ara veurem el disc que tenim**
+
+```
 fdisk -l
 ```
 
-![Comanda fdisk -l](img/22.png)
+![image](./img/29.png)
 
-Podem veure que el segon disc esta, per tant el seguent pas sera crear el seu volum, per fer això farem servir la comanda pvcreate, per poder fer servir aquesta comanda primer haurem d'instalar lvm2 
+**Ara haurem d'instal·lar lvm2**
 
-```bash
+```
 sudo apt install lvm2
 ```
 
-Un cop fet això ja podrem crear el volum en aquest cas sera amb la seguent comanda
+**I ara crearem el volum**
 
-```bash
+```
 pvcreate /dev/sdb
 ```
 
-![Crear el volum](img/23.png)
+![image](./img/30.png)
 
-Un cop que ja tenim el volum muntat el seguent pas sera formategar-lo amb la seguent comanda
+**El següent pas serà formategar-lo**
 
-```bash
+```
 mkfs.xfs -f /dev/sdb
 ```
 
-![Formategar el volum](img/24.png)
+![image](./img/31.png)
 
-Per ultim tocara muntar el disc a la carpeta que hem crear previament, per fer axò farem la seguent comanda
+**Ara muntarem el disc a la carpeta que hem creat abans**
 
-```bash
+```
 mount /dev/sdb /media/backup
 ```
-![Muntar el disc](img/25.png)
 
-Un cop que ja tenim el disc muntat el seguent pas sera instalar Duplicity
+![image](./img/32.png)
 
-```bash
+**Ara instal·larem el Duplicity**
+
+```
 apt install duplicity -y
 ```
 
-Un cop fet això el seguent pas sera crear un parell d’usuaris amb carpeta personal i crear 4 arxius de 10 MB a la carpeta home del teu usuari.
+**Un cop tinguis això llest, el següent pas és crear un parell d’usuaris amb la seva carpeta personal i posar quatre arxius de 10 MB al home del teu usuari.**
 
-per fer això ho farem de la seguent forma
-
-```bash
+```
 useradd -m -s /bin/bash user1
 ```
 
-```bash
+```
 useradd -m -s /bin/bash user2
 ```
-![Crear usuaris](img/26.png)
-![Comprobar usuaris](img/27.png)
 
-```bash
+![image](./img/33.png)
+
+```
 fallocate -l 10MB file1
 fallocate -l 10MB file2
 fallocate -l 10MB file3
 fallocate -l 10MB file4
 ```
-![Comprobar arxius](img/28.png)
 
+![image](./img/34.png)
 
-Un cop que ja tenim els arxius de prova creats els seguent pas sera fer la copia de seguretat, això ho farem amb el duplicity
+**Ara ja tenim els arxius creats, amb la següent comanda fem una copia de seguretat a la carepta home**
 
-La comanda per fer una copia de seguretat completa de la carpeta home sera la seguent 
-
-```bash
+```
 duplicity full /home/user file:///media/backup/
 ```
-En el moment en que ens demana el passphrase podem escollir el que nosaltres volguem, ja que és una prova en el meu cas he escollit copia
 
-![Fer la copia](img/29.png)
+**Jo he escollit la passphrase prova1**
 
-Podem veure que la copia s'ha creat correctament en el disc secundari, això amb la comanda ls
+![image](./img/35.png)
 
-![veure la copia](img/30.png)
+**Amb la comanda ls podem veure que s'ha fet**
 
-Un cop fet això el seguent pas sera esborrar els arxius i comprobar que funcionen correctament
+![image](./img/36.png)
 
-![Esborrar arxius](img/31.png)
+**Ara borrarem els documents que hem fet abans**
 
-Un cop que ja no estan els arxius farem servir la copia per recuperar-los, en aquest cas guardarem la copia dins d'una carpeta que es diu copia dins de la carpeta ```/home/user``` això ho farem amb la seguent comanda:
+![image](./img/37.png)
 
-```bash
+```
 duplicity restore file:///media/backup/ /home/user/copia
 ```
 
-![Copia feta](img/32.png)
-
-A continuació farem una copia incremental, per començar crearem un arxiu de 4mb
+![image](./img/38.png)
