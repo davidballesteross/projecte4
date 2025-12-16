@@ -8,4 +8,5 @@ Inclou el desenvolupament d’un **e-commerce complet a Figma**, la creació d�
 Aquest producte reflecteix competències transversals tant tècniques com creatives.
 
 ---
-](https://planner.cloud.microsoft/webui/plan/hP8JIKeSoUSBZRCi4bIvUJYACd8V/view/board?tid=c7b5981a-7820-4ac8-ae65-03515ea81317)
+
+- [Enllaç Kanban](https://planner.cloud.microsoft/webui/plan/hP8JIKeSoUSBZRCi4bIvUJYACd8V/view/board?tid=c7b5981a-7820-4ac8-ae65-03515ea81317)
