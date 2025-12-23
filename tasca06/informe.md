@@ -35,12 +35,12 @@ Permetre la connexió remota entre un equip client i un equip de suport, per tal
   - **Port RDP:** `3389` (per defecte) o `3390` (segons configuració)
   - **Usuari i contrasenya locals**
 
+![solucio](/tasca06/img/cap5.png)
+![solucio](/tasca06/img/cap6.png)
+![solucio](/tasca06/img/cap7.png)
+![solucio](/tasca06/img/cap8.png)
+![solucio](/tasca06/img/cap9.png)
+![solucio](/tasca06/img/cap10.png)
 ![solucio](/tasca06/img/cap11.png)
-![solucio](/tasca06/img/cap12.png)
-![solucio](/tasca06/img/cap13.png)
-![solucio](/tasca06/img/cap14.png)
-![solucio](/tasca06/img/cap15.png)
-![solucio](/tasca06/img/cap16.png)
-![solucio](/tasca06/img/cap17.png)
 
 ---
