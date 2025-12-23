@@ -38,5 +38,7 @@ La guia ha d’estar pensada per un client que necessita rapidesa i claredat.
 - `informe.md` amb la guia tècnica completa.  
 - Carpeta `img/` amb totes les captures de pantalla.
 
+---
+[Informe](informe.md)
 [Tornar pàgina del projecte](../README.md)
 
