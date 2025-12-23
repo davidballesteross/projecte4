@@ -14,7 +14,7 @@ Permetre la connexió remota entre un equip client i un equip de suport, per tal
 
 - Accedir a **Configuració → Sistema → Escriptori remot**.
 - Activar l’opció **Escriptori remot**.
-- Afegir usuaris amb accés remot (per exemple, l'usuari *Mati* o *Marti*).
+- Afegir usuaris amb accés remot (per exemple, l'usuari *David*).
 - Confirmar amb **Acceptar**.
 
 **Nota:** Cal assegurar-se que l'equip client té un nom identificable a la xarxa (ex: `DESKTOP-BROTAV4`).
@@ -26,10 +26,6 @@ Permetre la connexió remota entre un equip client i un equip de suport, per tal
 ![solucio](/tasca06/img/cap4.png)
 ![solucio](/tasca06/img/cap5.png)
 ![solucio](/tasca06/img/cap6.png)
-![solucio](/tasca06/img/cap7.png)
-![solucio](/tasca06/img/cap8.png)
-![solucio](/tasca06/img/cap9.png)
-![solucio](/tasca06/img/cap10.png)
 
 ---
 
