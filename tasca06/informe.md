@@ -1,4 +1,4 @@
-# Guia d'Accés i Configuració d'Escriptori Remot (RDP) – EverPia IT Support
+# Guia d'Accés i Configuració d'Escriptori Remot 
 
 Aquesta guia documenta el procés de configuració i connexió mitjançant RDP (Remote Desktop Protocol) entre un client (usuari final) i un suport tècnic. El procediment s'ha realitzat seguint les directrius de la tasca **T06: Accés remot. Escriptori remot (RDP)**.
 
