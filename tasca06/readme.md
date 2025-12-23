@@ -39,6 +39,6 @@ La guia ha d’estar pensada per un client que necessita rapidesa i claredat.
 - Carpeta `img/` amb totes les captures de pantalla.
 
 ---
-[Informe](informe.md)
-[Tornar pàgina del projecte](../README.md)
+- [Informe](informe.md)
+- [Tornar pàgina del projecte](../README.md)
 
