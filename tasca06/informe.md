@@ -19,8 +19,6 @@ Permetre la connexió remota entre un equip client i un equip de suport, per tal
 
 **Nota:** Cal assegurar-se que l'equip client té un nom identificable a la xarxa (ex: `DESKTOP-BROTAV4`).
 
-![solucio](/tasca06/img/cap1.png)
-![solucio](/tasca06/img/cap2.png)
 ![solucio](/tasca06/img/cap3.png)
 ![solucio](/tasca06/img/cap4.png)
 ![solucio](/tasca06/img/cap5.png)
