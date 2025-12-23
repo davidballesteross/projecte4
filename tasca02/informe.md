@@ -1,223 +1,173 @@
-# Part 1: Còpia seguretat dels equips clients Windows
+# Sistema de Còpies de Seguretat  
+**Client:** Muntatges i Serveis Tècnics SL
 
-Per comneçar el primer pas sera tindre una maquina client windows amb un disc principal on tindrem el sistema operatiu i despres un segon disc de 10 Gb en el qual farem la copia.
+## Introducció
+El client **Muntatges i Serveis Tècnics SL** necessita una política de còpies de seguretat robusta i fiable.  
+Per donar resposta a aquesta necessitat, s’ha dissenyat i implementat un sistema de backups dividit en dues parts:
 
-![Captura 1](img/t02.1.png)
+- Còpia de seguretat en equips **Windows 11** utilitzant **Duplicati**.
+- Còpia de seguretat en un **servidor Ubuntu Linux** utilitzant **Duplicity** i **cron**.
 
-**A dins de la màquina obrirem l'administrador de discos i farem click dret sobre ell, li donarem a siguiente fins que quedi així**
+---
 
-![image](./img/14.png)
+## Part 1: Còpia de seguretat dels equips clients Windows
 
-**Ara crearem documents per fer les proves de copa de seguretat**
+### Creació de la VM amb Windows 11
+Configuració inicial de la màquina virtual amb Windows 11.  
+**Objectiu:** Disposar d’un entorn Windows que simuli un client real.
 
-![image](./img/15.png)
+### Afegir un segon disc de 10 GB
+S’afegeix un disc dur addicional a la màquina virtual.  
+**Objectiu:** Simular un dispositiu local dedicat exclusivament a còpies de seguretat.
 
+![solucio](/tasca02/img/cap1.png)
+![solucio](/tasca02/img/cap2.png)
+![solucio](/tasca02/img/cap3.png)
+![solucio](/tasca02/img/cap4.png)
+![solucio](/tasca02/img/cap5.png)
+![solucio](/tasca02/img/cap6.png)
+![solucio](/tasca02/img/cap7.png)
 
-**El primer pas serà entrar al nostre navegador i entrar a la Web de duplicati, seguidament instal·larem segons el nostre sistema operatiu, en aquest cas Windows**
+### Instal·lació de Duplicati
+Descàrrega i instal·lació de l’eina Duplicati.  
+**Objectiu:** Disposar d’una eina de còpies de seguretat programades i xifrades.
 
-![image](./img/1.png)
+![solucio](/tasca02/img/cap8.png)
 
+### Primera execució de Duplicati
+Accés a la interfície web de Duplicati.  
+**Objectiu:** Configurar els plans de còpia de seguretat.
 
-**Un cop instal·lat obrim el descarregable i començem amb la instal·lació**
+![solucio](/tasca02/img/cap9.png)
 
-![image](./img/2.png)
+### Configuració del destí de còpia (disc secundari)
+Definició del disc addicional com a destí de les còpies.  
+**Objectiu:** Verificar que el disc secundari funciona com a repositori local.
 
+![solucio](/tasca02/img/cap10.png)
+![solucio](/tasca02/img/cap11.png)
+![solucio](/tasca02/img/cap12.png)
+![solucio](/tasca02/img/cap13.png)
+![solucio](/tasca02/img/cap14.png)
+![solucio](/tasca02/img/cap15.png)
 
-**Acceptem y continuem**
+### Configuració del destí de còpia (Google Drive)
+Connexió amb un compte de Google Drive.  
+**Objectiu:** Complir la regla **3-2-1**, mantenint una còpia fora de l’empresa.
 
-![image](./img/3.png)
+![solucio](/tasca02/img/cap16.png)
+![solucio](/tasca02/img/cap17.png)
+![solucio](/tasca02/img/cap18.png)
+![solucio](/tasca02/img/cap19.png)
 
+---
 
-**Seguim amb la instal·lació com a les següents captures**
+## Part 2: Còpia de seguretat del servidor Linux
 
-![image](./img/4.png)
+![solucio](/tasca02/img/cap20.png)
 
+### Detecció del disc amb `lsblk`
+Identificació del disc **/dev/sdb** de 10 GB.  
+**Objectiu:** Localitzar el dispositiu destinat a les còpies de seguretat.
 
-![image](./img/5.png)
+![solucio](/tasca02/img/cap21.png)
 
+### Particionament amb `parted`
+Creació d’una partició amb sistema de fitxers XFS.  
+**Objectiu:** Utilitzar un sistema de fitxers robust per a backups.
 
-**Haurem de donar-li permisos per fer canvis al dispositiu**
+![solucio](/tasca02/img/cap22.png)
 
-![image](./img/6.png)
+### Format amb `mkfs.xfs`
+Formatatge de la partició creada.  
+**Objectiu:** Preparar el disc per emmagatzemar dades.
 
+![solucio](/tasca02/img/cap23.png)
 
-**Esperem a que es completi**
+### Muntatge del disc a `/media/backup`
+Creació i muntatge del punt de muntatge.  
+**Objectiu:** Definir el destí de les còpies de seguretat.
 
-![image](./img/7.png)
+![solucio](/tasca02/img/cap24.png)
 
+### Instal·lació de `duplicity` i `xfsprogs`
+Instal·lació dels paquets necessaris.  
+**Objectiu:** Disposar de les eines imprescindibles per gestionar backups.
 
-**Un cop completat, li donarem a Finish**
+![solucio](/tasca02/img/cap25.png)
+![solucio](/tasca02/img/cap28.png)
 
-![image](./img/8.png)
+### Creació d’usuaris de prova
+Creació dels usuaris `usuari1` i `usuari2`.  
+**Objectiu:** Simular un entorn multiusuari real.
 
+![solucio](/tasca02/img/cap26.png)
+![solucio](/tasca02/img/cap29.png)
+![solucio](/tasca02/img/cap30.png)
 
-**Al donar-li a finish ens obrirà una pàgina al nostre navegador, podrem canviar la contrasenya, però en aquest cas no la canviarem**
+### Creació de fitxers de prova
+Generació de fitxers de 10 MB amb `fallocate`.  
+**Objectiu:** Validar el funcionament de les còpies.
 
-![image](./img/9.png)
+![solucio](/tasca02/img/cap31.png)
 
+### Primera còpia completa amb Duplicity
+Còpia completa del directori `/home`.  
+**Objectiu:** Establir el punt inicial de la cadena de còpies.
 
-**Afagirem un backup**
+![solucio](/tasca02/img/cap27.png)
+![solucio](/tasca02/img/cap32.png)
+![solucio](/tasca02/img/cap33.png)
 
-![image](./img/10.png)
+### Restauració de fitxers
+Prova de restauració de fitxers eliminats.  
+**Objectiu:** Comprovar que les còpies són recuperables.
 
-![image](./img/11.png)
+![solucio](/tasca02/img/cap35.png)
 
+### Còpia incremental
+Creació d’un nou fitxer i execució d’un backup incremental.  
+**Objectiu:** Verificar que només es copien els canvis.
 
-**Ara posarem la informació del disc**
+![solucio](/tasca02/img/cap37.png)
 
-![image](./img/12.png)
+### Estat de la col·lecció (`collection-status`)
+Visualització de còpies completes i incrementals.  
+**Objectiu:** Validar la coherència de la cadena de backups.
 
-**Posarem que el backup es fagi al disc secundari**
+![solucio](/tasca02/img/cap34.png)
 
-![image](./img/16.png)
+### Script `fullbackup.sh`
+Script per automatitzar la còpia completa.  
+**Objectiu:** Facilitar l’execució del backup complet.
 
+![solucio](/tasca02/img/cap36.png)
 
-**El següent serà seleccionar el que volem que es fagi un backup, en aquest cas seran els 4 documents que hem creat abans**
+### Script `incrementalbackup.sh`
+Script per automatitzar les còpies incrementals.  
+**Objectiu:** Optimitzar l’ús d’espai i temps.
 
-![image](./img/17.png)
+![solucio](/tasca02/img/cap39.png)
+![solucio](/tasca02/img/cap40.png)
 
-**Posarem que es fagi cada 1 hora**
+### Configuració de `cron`
+Programació de les tasques automàtiques.  
+**Objectiu:** Garantir còpies diàries sense intervenció manual.
 
-![image](./img/18.png)
+![solucio](/tasca02/img/cap40.png)
 
+### Verificació dels fitxers de backup
+Comprovació dels fitxers `.difftar.gpg` i manifests.  
+**Objectiu:** Evidenciar que les còpies s’han realitzat correctament.
 
-**Per últim li donarem a Submit i ja estarà creat**
+![solucio](/tasca02/img/cap41.png)
+![solucio](/tasca02/img/cap42.png)
 
-![image](./img/19.png)
+### Restauració puntual d’un fitxer
+Recuperació del fitxer `fitxer1.bin`.  
+**Objectiu:** Validar la restauració selectiva de dades.
 
+![solucio](/tasca02/img/cap43.png)
+![solucio](/tasca02/img/cap44.png)
 
-**Ara farem el mateix pero amb Google Drive**
-
-![image](./img/20.png)
-
-**La farem cada dia a les 6 de la tarda**
-
-![image](./img/21.png)
-
-
-![image](./img/22.png)
-
-
-**Ara borrarem els documents per veure si es fa el backup**
-
-![image](./img/23.png)
-
-**Anirem a Restore a la part esquerra i despres farem click a restore i start**
-
-![image](./img/24.png)
-
-![image](./img/25.png)
-
-**Ja ho tindriem fet**
-
-![image](./img/26.png)
-
-![image](./img/27.png)
-
-
-**Ara pasarem a la part de Ubuntu**
-
-**Farem servir Duplicaty**
-
-**Primer de tot farem la següent comanda**
-
-```
-mkdir /media/backup 
-```
-
-![image](./img/28.png)
-
-**Ara haurem de donar-li forma al disc**
-
-```
-sudo apt install fdisk
-```
-
-**Ara veurem el disc que tenim**
-
-```
-fdisk -l
-```
-
-![image](./img/29.png)
-
-**Ara haurem d'instal·lar lvm2**
-
-```
-sudo apt install lvm2
-```
-
-**I ara crearem el volum**
-
-```
-pvcreate /dev/sdb
-```
-
-![image](./img/30.png)
-
-**El següent pas serà formategar-lo**
-
-```
-mkfs.xfs -f /dev/sdb
-```
-
-![image](./img/31.png)
-
-**Ara muntarem el disc a la carpeta que hem creat abans**
-
-```
-mount /dev/sdb /media/backup
-```
-
-![image](./img/32.png)
-
-**Ara instal·larem el Duplicity**
-
-```
-apt install duplicity -y
-```
-
-**Un cop tinguis això llest, el següent pas és crear un parell d’usuaris amb la seva carpeta personal i posar quatre arxius de 10 MB al home del teu usuari.**
-
-```
-useradd -m -s /bin/bash user1
-```
-
-```
-useradd -m -s /bin/bash user2
-```
-
-![image](./img/33.png)
-
-```
-fallocate -l 10MB file1
-fallocate -l 10MB file2
-fallocate -l 10MB file3
-fallocate -l 10MB file4
-```
-
-![image](./img/34.png)
-
-**Ara ja tenim els arxius creats, amb la següent comanda fem una copia de seguretat a la carepta home**
-
-```
-duplicity full /home/user file:///media/backup/
-```
-
-**Jo he escollit la passphrase prova1**
-
-![image](./img/35.png)
-
-**Amb la comanda ls podem veure que s'ha fet**
-
-![image](./img/36.png)
-
-**Ara borrarem els documents que hem fet abans**
-
-![image](./img/37.png)
-
-```
-duplicity restore file:///media/backup/ /home/user/copia
-```
-
-![image](./img/38.png)
+---
