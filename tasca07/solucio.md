@@ -25,12 +25,12 @@ Finalment hem escollit **Chrome Remote Desktop** ja que creiem que és la millor
 3. Feu clic a **"Conectarse a otro ordenador"**
 5. Introduïm el PIN que ha generat el client.
 
-![solucio](/tasca06/img/cap1.png)
+![solucio](/tasca07/img/cap1.png)
 
 7. Esperem a que el client confirmi el nostre acces.
 8. Un cop confirmat ja estariem dins!!
 
-![solucio](/tasca06/img/cap2.png)
+![solucio](/tasca07/img/cap2.png)
 
 ### Guia 2: Manual per al Client
 
@@ -38,11 +38,11 @@ Finalment hem escollit **Chrome Remote Desktop** ja que creiem que és la millor
 2. Anem a: [remotedesktop.google.com/support](https://remotedesktop.google.com/support)
 3. Feu clic **"Compartir mi pantalla"** *(No instal·la res)
 
-![solucio](/tasca06/img/cap3.png)
+![solucio](/tasca07/img/cap3.png)
 
 4. Veurem un codi, el cual necessità el tènic per conectar-se. *(No patiu, vosaltres haureu de conccedir l'acces més endevant)
 
-![solucio](/tasca06/img/cap4.png)
+![solucio](/tasca07/img/cap4.png)
 
 5. Esperem que el tènic es conecti i acceptem el seu acces.
 
@@ -50,4 +50,4 @@ Finalment hem escollit **Chrome Remote Desktop** ja que creiem que és la millor
 
 7. Podeu veure en temps real que fa el tènic en pantalla i para la connexió quan volgeu.
 
-![solucio](/tasca06/img/cap5.png)
+![solucio](/tasca07/img/cap5.png)
